@@ -6,6 +6,8 @@
 package mib1;
 
 import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
+import javax.swing.Popup;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -130,6 +132,8 @@ public class AlienInloggad extends javax.swing.JFrame {
         Områdeschef minchef = new Områdeschef(idb);
         minchef.setVisible(true);
         this.dispose();
+       
+      
        
     }//GEN-LAST:event_jButton1ActionPerformed
 
