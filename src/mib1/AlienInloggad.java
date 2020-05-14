@@ -145,10 +145,10 @@ public class AlienInloggad extends javax.swing.JFrame {
         */
         String user = huvudFonster.hamtaID();
         try{
-            String agentID = idb.fetchSingle("Select agent_ID from omradeschef join plats on  omradeschef.OMRADE = plats.FINNS_I join alien on alien.PLATS = plats.PLATS_ID where alien.namn = " + "'"  + user + "'");
+            //String agentID = idb.fetchSingle("Select omradeschef.agent_ID from omradeschef join plats on  omradeschef.OMRADE = plats.FINNS_I join alien on alien.PLATS = plats.PLATS_ID where alien.namn = " + "'"  + user + "'");
             String agentnamn = idb.fetchSingle("Select agent.NAMN from agent join alien on  agent.agent_id = alien.ansvarig_agent  where alien.namn = " + "'" + user + "'");
             String agentTfn = idb.fetchSingle("Select agent.telefon from agent join alien on agent.agent_id = alien.ansvarig_agent where alien.namn = " + "'" + user + "'");
-            agentIDLBL.setText("Agentens ID " + agentID);
+            //agentIDLBL.setText("Agentens ID " + agentID);
             agentNamnLBL.setText("Agentens namn " + agentnamn);
             agentTfnLBL.setText("Agentens telnr " + agentTfn);
         }
