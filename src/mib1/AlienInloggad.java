@@ -39,7 +39,10 @@ public class AlienInloggad extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         logoutBTNalien = new javax.swing.JButton();
         btnbytlösenAlien = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        områdeschefBTN = new javax.swing.JButton();
+        agentIDLBL = new javax.swing.JLabel();
+        agentNamnLBL = new javax.swing.JLabel();
+        agentTfnLBL = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -63,17 +66,17 @@ public class AlienInloggad extends javax.swing.JFrame {
             }
         });
 
-        btnbytlösenAlien.setText("Byt Lösenord");
+        btnbytlösenAlien.setText("Byt lösenord");
         btnbytlösenAlien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnbytlösenAlienActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Min områdeschef");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        områdeschefBTN.setText("Min områdeschef");
+        områdeschefBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                områdeschefBTNActionPerformed(evt);
             }
         });
 
@@ -88,13 +91,14 @@ public class AlienInloggad extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(131, 131, 131)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnbytlösenAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(logoutBTNalien, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(138, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(agentTfnLBL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(agentNamnLBL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(agentIDLBL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(områdeschefBTN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnbytlösenAlien, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(logoutBTNalien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,10 +108,16 @@ public class AlienInloggad extends javax.swing.JFrame {
                 .addGap(58, 58, 58)
                 .addComponent(btnbytlösenAlien)
                 .addGap(13, 13, 13)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
+                .addComponent(områdeschefBTN)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(agentIDLBL)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(agentNamnLBL)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(agentTfnLBL)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(logoutBTNalien)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addGap(46, 46, 46))
         );
 
         pack();
@@ -127,15 +137,29 @@ public class AlienInloggad extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnbytlösenAlienActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void områdeschefBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_områdeschefBTNActionPerformed
         // TODO add your handling code here:
-        Områdeschef minchef = new Områdeschef(idb);
+        /*Områdeschef minchef = new Områdeschef(idb);
         minchef.setVisible(true);
         this.dispose();
-       
+        */
+        String user = huvudFonster.hamtaID();
+        try{
+            String agentID = idb.fetchSingle("Select agent_ID from omradeschef join plats on  omradeschef.OMRADE = plats.FINNS_I join alien on alien.PLATS = plats.PLATS_ID where alien.namn = " + "'"  + user + "'");
+            String agentnamn = idb.fetchSingle("Select agent.NAMN from agent join alien on  agent.agent_id = alien.ansvarig_agent  where alien.namn = " + "'" + user + "'");
+            String agentTfn = idb.fetchSingle("Select agent.telefon from agent join alien on agent.agent_id = alien.ansvarig_agent where alien.namn = " + "'" + user + "'");
+            agentIDLBL.setText("Agentens ID " + agentID);
+            agentNamnLBL.setText("Agentens namn " + agentnamn);
+            agentTfnLBL.setText("Agentens telnr " + agentTfn);
+        }
+        catch(InfException e){
+            JOptionPane.showMessageDialog(null, "Något gick fel återvänd till föregående fönster och försök igen");
+            System.out.println(e.getMessage());
+        
+        }
       
        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_områdeschefBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,10 +197,13 @@ public class AlienInloggad extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel agentIDLBL;
+    private javax.swing.JLabel agentNamnLBL;
+    private javax.swing.JLabel agentTfnLBL;
     private javax.swing.JButton btnbytlösenAlien;
-    private javax.swing.JButton jButton1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton logoutBTNalien;
+    private javax.swing.JButton områdeschefBTN;
     // End of variables declaration//GEN-END:variables
 }

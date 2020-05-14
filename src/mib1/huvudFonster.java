@@ -17,7 +17,8 @@ import oru.inf.InfException;
  */
 public class huvudFonster extends javax.swing.JFrame {
     private static InfDB idb;
-    private String id;    /**
+    public static String id;
+    public boolean inloggad;    /**
      * Creates new form huvudFonster
      */
 
@@ -27,6 +28,7 @@ public class huvudFonster extends javax.swing.JFrame {
      */
     public huvudFonster(InfDB idb) {
         initComponents();
+        inloggad = false;
         try{
         idb = new InfDB("C:\\db\\mibdb.fdb");    
         this.idb = idb;
@@ -181,17 +183,20 @@ public class huvudFonster extends javax.swing.JFrame {
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         // TODO add your handling code here:
-        
+        //Skapar lokala variabler som är värdena av fälten som användaren skriver in
         String user = usernameAgent.getText();
         String pass = PasswordAgent.getText();
         
+        
             try{
-                boolean inloggad = false;
+                //Hämtar in den nödvändiga datan från databasen för att kunna validera användaruppgifter
                 String Username = idb.fetchSingle("Select Namn from agent where Namn = " +"'"  + user + "'");
                 String password1 = idb.fetchSingle("Select Losenord from agent where Namn = " + "'" + user +  "'");
                 String admin = idb.fetchSingle("Select Administrator from agent where Namn = " +"'" + user + "'");
+                String adminpriv = idb.fetchSingle("Select Administrator from agent");
                 
-                if(user.equals(Username) && pass.equals(password1) && admin.equals("N")){
+                //Om användaren skríver in korrekta uppgifter och är admin så blir de skickade till AdminFonster
+                if(user.equals(Username) && pass.equals(password1) && admin.equals(adminpriv)){
                     id = Username;
                     inloggad = true;
                     AdminFonster adminInlogg = new AdminFonster(idb);
@@ -202,6 +207,7 @@ public class huvudFonster extends javax.swing.JFrame {
                     
 
                 }
+                //Om användaren skriver in korrekta uppgifter så blir de vidareskickade till AgentInloggad fönstret
                 else if(user.equals(Username) && pass.equals(password1)){
                     id = Username;
                     inloggad = true;
@@ -215,11 +221,13 @@ public class huvudFonster extends javax.swing.JFrame {
                     
                     
                 }
+                // Om användaren skriver in felaktiga uppgifter
                 else{
                     JOptionPane.showMessageDialog(null, "Felaktigt användarnamn eller lösenord");
                 }
                 
             }
+            // Om något går fel med kopplingen till databasen så körs denna catch
             catch(InfException e){
                     JOptionPane.showMessageDialog(null, "Ett fel skedde");
                     System.out.println(e.getMessage());
@@ -240,25 +248,37 @@ public class huvudFonster extends javax.swing.JFrame {
         // TODO add your handling code here:
         String user = userAlien.getText();
         String pass = PasswordAlien.getText();
+        
         try{
+        //Hämtar in nödvändig data från databasen för att hantera validering av användaruppgifter
         String username = idb.fetchSingle("Select Namn from Alien where Namn = " + "'" + user + "'");
         String password = idb.fetchSingle("Select Losenord from Alien where Namn = " + "'" + user + "'");
+        
+        //Om aliens användaruppgifter är korrekta så loggas den in i systemet och kommer till AlienInloggad fönstret
         if(user.equals(username) && pass.equals(password)){
+            inloggad = true;
             id = username;
             AlienInloggad Alieninne = new AlienInloggad(idb);
             Alieninne.setVisible(true);
             this.dispose();
         }
+        // Om användaruppgifterna inte stämmer
         else{
             JOptionPane.showMessageDialog(null, "Felaktigt användarnamn eller lösenord");
         }
         
         }
+        //Om något går fel med kopplingen till databasen
         catch(InfException e){
-            JOptionPane.showMessageDialog(null, "Något gick fel");
+            JOptionPane.showMessageDialog(null, "Något gick fel med databasen, Försök igen");
+            System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_loginAlienActionPerformed
-
+    // Enkel getmetod så att andra klasser kan komma åt id på inloggad användare
+    public static String hamtaID(){
+        return id;
+        
+    }
     /**
      * @param args the command line arguments
      */

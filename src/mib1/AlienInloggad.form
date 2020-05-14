@@ -48,17 +48,17 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jButton1" max="32767" attributes="0"/>
-                          <Component id="btnbytlösenAlien" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="agentTfnLBL" alignment="0" max="32767" attributes="0"/>
+                          <Component id="agentNamnLBL" alignment="0" max="32767" attributes="0"/>
+                          <Component id="agentIDLBL" alignment="0" max="32767" attributes="0"/>
+                          <Component id="områdeschefBTN" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnbytlösenAlien" alignment="0" max="32767" attributes="0"/>
+                          <Component id="logoutBTNalien" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
-                      <Component id="logoutBTNalien" min="-2" pref="147" max="-2" attributes="0"/>
-                  </Group>
               </Group>
-              <EmptySpace pref="138" max="32767" attributes="0"/>
+              <EmptySpace pref="146" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -70,10 +70,16 @@
               <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
               <Component id="btnbytlösenAlien" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="områdeschefBTN" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="agentIDLBL" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="agentNamnLBL" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="agentTfnLBL" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="54" max="32767" attributes="0"/>
               <Component id="logoutBTNalien" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="105" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -94,19 +100,25 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnbytl&#xf6;senAlien">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Byt L&#xf6;senord"/>
+        <Property name="text" type="java.lang.String" value="Byt l&#xf6;senord"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnbytl&#xf6;senAlienActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="omr&#xe5;deschefBTN">
       <Properties>
         <Property name="text" type="java.lang.String" value="Min omr&#xe5;deschef"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="omr&#xe5;deschefBTNActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="agentIDLBL">
+    </Component>
+    <Component class="javax.swing.JLabel" name="agentNamnLBL">
+    </Component>
+    <Component class="javax.swing.JLabel" name="agentTfnLBL">
     </Component>
   </SubComponents>
 </Form>
