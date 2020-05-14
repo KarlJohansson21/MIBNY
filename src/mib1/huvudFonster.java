@@ -193,10 +193,10 @@ public class huvudFonster extends javax.swing.JFrame {
                 String Username = idb.fetchSingle("Select Namn from agent where Namn = " +"'"  + user + "'");
                 String password1 = idb.fetchSingle("Select Losenord from agent where Namn = " + "'" + user +  "'");
                 String admin = idb.fetchSingle("Select Administrator from agent where Namn = " +"'" + user + "'");
-                String adminpriv = idb.fetchSingle("Select Administrator from agent");
                 
-                //Om användaren skríver in korrekta uppgifter och är admin så blir de skickade till AdminFonster
-                if(user.equals(Username) && pass.equals(password1) && admin.equals(adminpriv)){
+                
+                //Om användaren skríver in korrekta uppgifter och är admin (j står för ja på frågan ifall användaren är admin) så blir de skickade till AdminFonster
+                if(user.equals(Username) && pass.equals(password1) && admin.equals("J")){
                     id = Username;
                     inloggad = true;
                     AdminFonster adminInlogg = new AdminFonster(idb);
