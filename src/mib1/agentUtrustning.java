@@ -19,6 +19,8 @@ public class agentUtrustning extends javax.swing.JFrame {
     public agentUtrustning(InfDB idb) {
         initComponents();
         this.idb = idb;
+        valLBL.setVisible(true);
+        valLBL.setText("Överföringsteknik");
     }
 
     /**
@@ -134,7 +136,8 @@ public class agentUtrustning extends javax.swing.JFrame {
 
     private void comboboxUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboboxUtrustningActionPerformed
         // TODO add your handling code here:
-           String  val= comboboxUtrustning.getSelectedItem().toString();
+         
+        String  val= comboboxUtrustning.getSelectedItem().toString();
         if(val.equals("Kommunikation")){
             valLBL.setVisible(true);
             valLBL.setText("Överföringsteknik");
@@ -153,7 +156,8 @@ public class agentUtrustning extends javax.swing.JFrame {
         // TODO add your handling code here:
         String namn = namnUtrustning.getText();
         String kan = textVal.getText();
-        String  val= comboboxUtrustning.getSelectedItem().toString();
+        String  val = comboboxUtrustning.getSelectedItem().toString();
+        if(valideringsklass.tomtFalt(namnUtrustning) && valideringsklass.tomtFalt(textVal)){
         try{
             String add = idb.getAutoIncrement("Utrustning", "Utrustnings_ID");
             int convertID = Integer.parseInt(add);
@@ -175,6 +179,8 @@ public class agentUtrustning extends javax.swing.JFrame {
         catch(InfException e){
             JOptionPane.showMessageDialog(null, "Något gick fel försök igen");
             System.out.println(e.getMessage());
+        }
+        
         }
     }//GEN-LAST:event_nyUtrustningBTNActionPerformed
 

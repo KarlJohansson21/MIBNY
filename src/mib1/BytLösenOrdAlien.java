@@ -99,22 +99,21 @@ public class BytLösenOrdAlien extends javax.swing.JFrame {
         // TODO add your handling code here:
         String oldpass = oldpassword.getText();
         String pass = passwordnew.getText();
+        if (valideringsklass.tomtFalt(oldpassword) && valideringsklass.tomtFalt(passwordnew)) {
+            try {
+                String nuvarandepass = idb.fetchSingle("Select losenord from alien where losenord = " + "'" + oldpass + "'");
+                if (oldpass.equals(nuvarandepass)) {
+                    idb.update("Update alien set losenord = " + "'" + pass + "'" + "where losenord = " + "'" + oldpass + "'");
+                    JOptionPane.showMessageDialog(null, "Lösenordet har ändrats");
 
-        try{
-            String nuvarandepass = idb.fetchSingle("Select losenord from alien where losenord = " + "'" + oldpass + "'");
-            if(oldpass.equals(nuvarandepass)){
-                idb.update("Update alien set losenord = " + "'" +  pass+  "'" + "where losenord = " + "'" + oldpass + "'");
-                JOptionPane.showMessageDialog(null, "Lösenordet har ändrats");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Lösenordet matchar inte med det förra lösenordet");
+                }
 
+            } catch (InfException e) {
+                JOptionPane.showMessageDialog(null, "Något gick fel med lösenordet");
+                System.out.println(e.getMessage());
             }
-            else{
-                JOptionPane.showMessageDialog(null, "Lösenordet matchar inte med det förra lösenordet");
-            }
-
-        }
-        catch(InfException e){
-            JOptionPane.showMessageDialog(null, "Något gick fel med lösenordet");
-            System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_bytlösenordBTNActionPerformed
 

@@ -187,7 +187,7 @@ public class huvudFonster extends javax.swing.JFrame {
         String user = usernameAgent.getText();
         String pass = PasswordAgent.getText();
         
-        
+            if(valideringsklass.tomtFalt(usernameAgent) && valideringsklass.tomtFalt(PasswordAgent)){
             try{
                 //Hämtar in den nödvändiga datan från databasen för att kunna validera användaruppgifter
                 String Username = idb.fetchSingle("Select Namn from agent where Namn = " +"'"  + user + "'");
@@ -202,7 +202,7 @@ public class huvudFonster extends javax.swing.JFrame {
                     AdminFonster adminInlogg = new AdminFonster(idb);
                     adminInlogg.setVisible(true);
                     adminInlogg.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-                    this.dispose();
+                    this.setVisible(false);
                     
                     
 
@@ -233,7 +233,7 @@ public class huvudFonster extends javax.swing.JFrame {
                     System.out.println(e.getMessage());
             }
         
-            
+        }
     }//GEN-LAST:event_loginActionPerformed
 
     private void PasswordAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordAgentActionPerformed
@@ -248,7 +248,7 @@ public class huvudFonster extends javax.swing.JFrame {
         // TODO add your handling code here:
         String user = userAlien.getText();
         String pass = PasswordAlien.getText();
-        
+        if(valideringsklass.tomtFalt(userAlien) && valideringsklass.tomtFalt(PasswordAlien)){
         try{
         //Hämtar in nödvändig data från databasen för att hantera validering av användaruppgifter
         String username = idb.fetchSingle("Select Namn from Alien where Namn = " + "'" + user + "'");
@@ -272,6 +272,7 @@ public class huvudFonster extends javax.swing.JFrame {
         catch(InfException e){
             JOptionPane.showMessageDialog(null, "Något gick fel med databasen, Försök igen");
             System.out.println(e.getMessage());
+        }
         }
     }//GEN-LAST:event_loginAlienActionPerformed
     // Enkel getmetod så att andra klasser kan komma åt id på inloggad användare
