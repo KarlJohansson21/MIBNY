@@ -17,6 +17,7 @@ public class valideringsklass {
 
     public static boolean tomtFalt(JTextField faltCheck) {
         boolean resultat = true;
+        //Kollar om fält är tomma och isåfall meddelar användaren om det 
         if (faltCheck.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,"Fältet är tomt, skriv in ett värde!");
             resultat = false;
@@ -26,6 +27,7 @@ public class valideringsklass {
     }
     public static boolean tomCombo(JComboBox comboCheck){
         boolean resultat = true;
+        //Kollar om comboboxar är tomma och isåfall meddelar användaren om det 
         if(comboCheck.getSelectedIndex() == -1){
             JOptionPane.showMessageDialog(null, "Combolisten saknar värde, välj ett värde!");
             resultat = false;

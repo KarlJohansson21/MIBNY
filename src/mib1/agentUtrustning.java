@@ -19,6 +19,7 @@ public class agentUtrustning extends javax.swing.JFrame {
     public agentUtrustning(InfDB idb) {
         initComponents();
         this.idb = idb;
+        //Eftersom att comboboxUtrustning har kommunikation som startvärde så initialiseras valLBL med texten "Överföringsteknik"
         valLBL.setVisible(true);
         valLBL.setText("Överföringsteknik");
     }
@@ -138,6 +139,7 @@ public class agentUtrustning extends javax.swing.JFrame {
         // TODO add your handling code here:
          
         String  val= comboboxUtrustning.getSelectedItem().toString();
+        //Sätter det man valt från komboboxen i valLBL så att man kan se att man tex ska mata in kaliber på det vapen man lägger in i systemet
         if(val.equals("Kommunikation")){
             valLBL.setVisible(true);
             valLBL.setText("Överföringsteknik");
@@ -155,24 +157,27 @@ public class agentUtrustning extends javax.swing.JFrame {
     private void nyUtrustningBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nyUtrustningBTNActionPerformed
         // TODO add your handling code here:
         String namn = namnUtrustning.getText();
-        String kan = textVal.getText();
+        String beskriv = textVal.getText();
         String  val = comboboxUtrustning.getSelectedItem().toString();
+        //Kollar så att det inte skickas med tomma värden
         if(valideringsklass.tomtFalt(namnUtrustning) && valideringsklass.tomtFalt(textVal)){
-        try{
+            //Lägger till benämningen på utrustningen samt autoinkrementerar utrustningstabellen för varje objekt som matas in
+            try{
             String add = idb.getAutoIncrement("Utrustning", "Utrustnings_ID");
             int convertID = Integer.parseInt(add);
             idb.insert("INSERT INTO UTRUSTNING VALUES ('" + convertID + "','" + namn + "')");
-            
+            // Beroende på vad man valt i comboboxUtrustning läggs det till i rätt tabell
             if(val.equals("Kommunikation")){
-                idb.insert("Insert into kommunikation values ('" + convertID + "','" + kan + "')");
+                idb.insert("Insert into kommunikation values ('" + convertID + "','" + beskriv + "')");
             }
             else if(val.equals("Teknik")){
-            idb.insert("Insert into Teknik values ('" + convertID + "','" + kan + "')");
+            idb.insert("Insert into Teknik values ('" + convertID + "','" + beskriv + "')");
         
         }
             else{
-                    idb.insert("Insert into Vapen values ('" + convertID + "','" + kan + "')");
+                    idb.insert("Insert into Vapen values ('" + convertID + "','" + beskriv + "')");
                     }
+            //Ruta som informerar användaren att utrustningen har registrerats
             JOptionPane.showMessageDialog(null, "Utrustningen har registrerats");
         }
          
@@ -191,6 +196,7 @@ public class agentUtrustning extends javax.swing.JFrame {
 
     private void tbxBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxBTNActionPerformed
         // TODO add your handling code here:
+        //Tar användaren tillbaka till AgentInloggad fönstret
         AgentInloggad tbx = new AgentInloggad(idb);
         tbx.setVisible(true);
         this.dispose();
