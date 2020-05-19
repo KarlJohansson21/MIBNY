@@ -56,7 +56,6 @@ public class RegistreraAgent extends javax.swing.JFrame {
         områdeCombo = new javax.swing.JComboBox<>();
         kontorsNamnTextField = new javax.swing.JTextField();
         kontorsnamnLBL = new javax.swing.JLabel();
-        datechooserField = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -130,8 +129,6 @@ public class RegistreraAgent extends javax.swing.JFrame {
 
         kontorsnamnLBL.setText("Kontorsnamn");
 
-        datechooserField.setDateFormatString("yyyy-MM-dd");
-
         javax.swing.GroupLayout grundPanelLayout = new javax.swing.GroupLayout(grundPanel);
         grundPanel.setLayout(grundPanelLayout);
         grundPanelLayout.setHorizontalGroup(
@@ -142,7 +139,6 @@ public class RegistreraAgent extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, grundPanelLayout.createSequentialGroup()
                         .addGap(116, 116, 116)
                         .addGroup(grundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(datechooserField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(anställningsdatumLBL, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(isAdminCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -169,9 +165,7 @@ public class RegistreraAgent extends javax.swing.JFrame {
                 .addComponent(tfnTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(anställningsdatumLBL)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(datechooserField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(28, 28, 28)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(isAdminCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -318,7 +312,6 @@ public class RegistreraAgent extends javax.swing.JFrame {
     private javax.swing.JLabel agentTypLBL;
     private javax.swing.JLabel anställningsdatumLBL;
     private javax.swing.JLabel användarNamnLBL;
-    private com.toedter.calendar.JDateChooser datechooserField;
     private javax.swing.JPanel grundPanel;
     private javax.swing.JComboBox<String> isAdminCombo;
     private javax.swing.JLabel jLabel1;
