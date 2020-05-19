@@ -38,6 +38,7 @@ public class Områdeschef extends javax.swing.JFrame {
         comboChef = new javax.swing.JComboBox<>();
         områdeschefLBL = new javax.swing.JLabel();
         tbxBTN = new javax.swing.JButton();
+        väljområdeLBL = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,6 +59,8 @@ public class Områdeschef extends javax.swing.JFrame {
             }
         });
 
+        väljområdeLBL.setText("Välj område nedan");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -67,7 +70,8 @@ public class Områdeschef extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(tbxBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(comboChef, 0, 110, Short.MAX_VALUE)
-                    .addComponent(områdeschefLBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(områdeschefLBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(väljområdeLBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(238, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -75,7 +79,9 @@ public class Områdeschef extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(68, 68, 68)
                 .addComponent(områdeschefLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
+                .addGap(26, 26, 26)
+                .addComponent(väljområdeLBL)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(comboChef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addComponent(tbxBTN)
@@ -103,7 +109,9 @@ public class Områdeschef extends javax.swing.JFrame {
         String val = comboChef.getSelectedItem().toString();
         if (valideringsklass.tomCombo(comboChef)) {
             try {
+                //Hämtar AgentId från områdeschef tabellen sen gör vi en join med områdestabellen där områdesID matchar med området i områdeschef tabellen där kravet benämning ska vara Svealand
                 String idchefSvea = idb.fetchSingle("SELECT Agent_ID from omradeschef join omrade on omrade.OMRADES_ID = omradeschef.OMRADE where omrade.BENAMNING = 'Svealand'");
+                //Skriver ut namnet på agenten som är chef för valt område med hjälp av sqlfrågan innan
                 String chefSvea = idb.fetchSingle("Select namn from agent where Agent_ID = " + idchefSvea);
                 String idChefGota = idb.fetchSingle("SELECT Agent_ID from omradeschef join omrade on omrade.OMRADES_ID = omradeschef.OMRADE where omrade.BENAMNING = 'Götaland'");
                 String chefGota = idb.fetchSingle("Select namn from agent where Agent_ID = " + idChefGota);
@@ -165,6 +173,7 @@ public class Områdeschef extends javax.swing.JFrame {
             public void run() {
                 new Områdeschef(idb).setVisible(true);
                 
+                
             }
         });
     }
@@ -174,5 +183,6 @@ public class Områdeschef extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel områdeschefLBL;
     private javax.swing.JButton tbxBTN;
+    private javax.swing.JLabel väljområdeLBL;
     // End of variables declaration//GEN-END:variables
 }

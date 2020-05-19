@@ -52,6 +52,7 @@
                       <Component id="tbxBTN" max="32767" attributes="0"/>
                       <Component id="comboChef" alignment="0" pref="110" max="32767" attributes="0"/>
                       <Component id="områdeschefLBL" alignment="0" max="32767" attributes="0"/>
+                      <Component id="väljområdeLBL" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="238" max="32767" attributes="0"/>
               </Group>
@@ -62,7 +63,9 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                   <Component id="områdeschefLBL" min="-2" pref="16" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <Component id="väljområdeLBL" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="comboChef" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="tbxBTN" min="-2" max="-2" attributes="0"/>
@@ -99,6 +102,11 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tbxBTNActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="v&#xe4;ljomr&#xe5;deLBL">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="V&#xe4;lj omr&#xe5;de nedan"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

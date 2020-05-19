@@ -98,7 +98,7 @@ public class agentUtrustning extends javax.swing.JFrame {
                                 .addComponent(TypLBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(textVal)
                                 .addComponent(valLBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,15 +142,15 @@ public class agentUtrustning extends javax.swing.JFrame {
         //Sätter det man valt från komboboxen i valLBL så att man kan se att man tex ska mata in kaliber på det vapen man lägger in i systemet
         if(val.equals("Kommunikation")){
             valLBL.setVisible(true);
-            valLBL.setText("Överföringsteknik");
+            valLBL.setText("Överföringsteknik:");
         }
         else if(val.equals("Teknik")){
             valLBL.setVisible(true);
-            valLBL.setText("Kraftkälla");
+            valLBL.setText("Kraftkälla:");
         }
         else{
             valLBL.setVisible(true);
-            valLBL.setText("Kaliber");
+            valLBL.setText("Kaliber:");
         }
     }//GEN-LAST:event_comboboxUtrustningActionPerformed
 

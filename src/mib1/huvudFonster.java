@@ -17,7 +17,7 @@ import oru.inf.InfException;
  */
 public class huvudFonster extends javax.swing.JFrame {
     private static InfDB idb;
-    public static String id;
+    public static String anvandare;
     public boolean inloggad;    /**
      * Creates new form huvudFonster
      */
@@ -197,7 +197,7 @@ public class huvudFonster extends javax.swing.JFrame {
                 
                 //Om användaren skríver in korrekta uppgifter och är admin (j står för ja på frågan ifall användaren är admin) så blir de skickade till AdminFonster
                 if(user.equals(Username) && pass.equals(password1) && admin.equals("J")){
-                    id = Username;
+                    anvandare = Username;
                     inloggad = true;
                     AdminFonster adminInlogg = new AdminFonster(idb);
                     adminInlogg.setVisible(true);
@@ -209,7 +209,7 @@ public class huvudFonster extends javax.swing.JFrame {
                 }
                 //Om användaren skriver in korrekta uppgifter så blir de vidareskickade till AgentInloggad fönstret
                 else if(user.equals(Username) && pass.equals(password1)){
-                    id = Username;
+                    anvandare = Username;
                     inloggad = true;
                     AgentInloggad inne = new AgentInloggad(idb);
                     inne.setVisible(true);
@@ -257,7 +257,7 @@ public class huvudFonster extends javax.swing.JFrame {
         //Om aliens användaruppgifter är korrekta så loggas den in i systemet och kommer till AlienInloggad fönstret
         if(user.equals(username) && pass.equals(password)){
             inloggad = true;
-            id = username;
+            anvandare = username;
             AlienInloggad Alieninne = new AlienInloggad(idb);
             Alieninne.setVisible(true);
             this.dispose();
@@ -276,8 +276,8 @@ public class huvudFonster extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_loginAlienActionPerformed
     // Enkel getmetod så att andra klasser kan komma åt id på inloggad användare
-    public static String hamtaID(){
-        return id;
+    public static String hamtaAnvandare(){
+        return anvandare;
         
     }
     /**

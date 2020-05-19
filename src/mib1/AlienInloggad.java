@@ -17,7 +17,7 @@ import oru.inf.InfException;
  */
 public class AlienInloggad extends javax.swing.JFrame {
     private static InfDB idb;
-    private String id;    /**
+       /**
     /**
      * Creates new form AlienInloggad
      */
@@ -143,13 +143,14 @@ public class AlienInloggad extends javax.swing.JFrame {
         minchef.setVisible(true);
         this.dispose();
         */
-        String user = huvudFonster.hamtaID();
+        String user = huvudFonster.hamtaAnvandare();
         try{
+            //Hämtar agentens namn och telefonnummer så att alien kan kontakta områdeschefen för det området som den vistas i.
             //String agentID = idb.fetchSingle("Select omradeschef.agent_ID from omradeschef join plats on  omradeschef.OMRADE = plats.FINNS_I join alien on alien.PLATS = plats.PLATS_ID where alien.namn = " + "'"  + user + "'");
             String agentnamn = idb.fetchSingle("Select agent.NAMN from agent join alien on  agent.agent_id = alien.ansvarig_agent  where alien.namn = " + "'" + user + "'");
             String agentTfn = idb.fetchSingle("Select agent.telefon from agent join alien on agent.agent_id = alien.ansvarig_agent where alien.namn = " + "'" + user + "'");
             //agentIDLBL.setText("Agentens ID " + agentID);
-            agentNamnLBL.setText("Agentens namn " + agentnamn);
+            agentNamnLBL.setText("Din områdeschef är " + agentnamn);
             agentTfnLBL.setText("Agentens telnr " + agentTfn);
         }
         catch(InfException e){

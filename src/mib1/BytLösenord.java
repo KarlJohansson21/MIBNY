@@ -37,6 +37,7 @@ public class BytLösenord extends javax.swing.JFrame {
         bytlösenordBTN = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         oldpassword = new javax.swing.JPasswordField();
+        tbxBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,6 +52,13 @@ public class BytLösenord extends javax.swing.JFrame {
 
         jLabel2.setText("Skriv in ditt gamla lösenord");
 
+        tbxBTN.setText("Tillbaka");
+        tbxBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbxBTNActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -62,7 +70,8 @@ public class BytLösenord extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bytlösenordBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(oldpassword))
+                    .addComponent(oldpassword)
+                    .addComponent(tbxBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(147, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -78,7 +87,9 @@ public class BytLösenord extends javax.swing.JFrame {
                 .addComponent(passwordnew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bytlösenordBTN)
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tbxBTN)
+                .addContainerGap(97, Short.MAX_VALUE))
         );
 
         pack();
@@ -105,6 +116,13 @@ public class BytLösenord extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_bytlösenordBTNActionPerformed
+
+    private void tbxBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxBTNActionPerformed
+        // TODO add your handling code here:
+        AgentInloggad tbx = new AgentInloggad(idb);
+        tbx.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_tbxBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,5 +165,6 @@ public class BytLösenord extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPasswordField oldpassword;
     private javax.swing.JPasswordField passwordnew;
+    private javax.swing.JButton tbxBTN;
     // End of variables declaration//GEN-END:variables
 }
