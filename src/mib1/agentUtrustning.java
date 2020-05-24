@@ -197,9 +197,34 @@ public class agentUtrustning extends javax.swing.JFrame {
     private void tbxBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxBTNActionPerformed
         // TODO add your handling code here:
         //Tar användaren tillbaka till AgentInloggad fönstret
-        AgentInloggad tbx = new AgentInloggad(idb);
-        tbx.setVisible(true);
-        this.dispose();
+        String test = huvudFonster.hamtaAnvandare();
+        //om agenten är admin så kommer man till adminsidan via knappen annars så kommer man till vanliga agentsidan
+        try{
+            //String namn = idb.fetchSingle("Select namn from agent where namn = " + "'" + test + "'");
+            // Här hämtar den id på den inloggade agenten
+            String id = idb.fetchSingle("Select agent_id from agent where namn = " + "'" + test + "'");
+            // Konverterar till int
+            int convertId = Integer.parseInt(id);
+            //If agenten är admin 
+            String om = idb.fetchSingle("select agent.ADMINISTRATOR from agent where agent_id = " + "'" + convertId +"'");
+            //Om villkorret uppfylls(en agent är admin om det står J i administrator kolumnen)
+            if(om.equals("J")){
+                AdminFonster tbxAdmin = new AdminFonster(idb);
+                tbxAdmin.setVisible(true);
+                this.dispose();
+            }
+            // Annars är det vanliga agentsidan man kommer till
+            else{
+                AgentInloggad tbx = new AgentInloggad(idb);
+                tbx.setVisible(true);
+                this.dispose();
+                 
+            }
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Något gick fel");
+            System.out.println(e.getMessage());
+        }
     }//GEN-LAST:event_tbxBTNActionPerformed
 
     /**

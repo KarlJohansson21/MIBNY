@@ -24,32 +24,63 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="registreraAgentBTN" max="32767" attributes="0"/>
-                  <Component id="registreraAlienBTN" max="32767" attributes="0"/>
-                  <Component id="removeAgentBTN" max="32767" attributes="0"/>
-                  <Component id="removeAlienBTN" max="32767" attributes="0"/>
-                  <Component id="removeUtrustningBTN" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="registreraAgentBTN" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="removeAgentBTN" min="-2" pref="121" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="registerUtrustning" max="32767" attributes="0"/>
+                          <Component id="registreraAlienBTN" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="removeAlienBTN" min="-2" pref="121" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <Component id="removeUtrustningBTN" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="changeOmrådesChefBTN" min="-2" pref="135" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="changeKontorsChefBTN" max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="140" max="32767" attributes="0"/>
+              <EmptySpace pref="77" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-              <Component id="registreraAgentBTN" min="-2" pref="36" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="registreraAgentBTN" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="removeAgentBTN" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="removeAgentBTN" min="-2" pref="32" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="registreraAlienBTN" min="-2" pref="34" max="-2" attributes="0"/>
+                  <Component id="removeAlienBTN" min="-2" pref="34" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="registreraAlienBTN" min="-2" pref="34" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="removeUtrustningBTN" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="registerUtrustning" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="removeAlienBTN" min="-2" pref="33" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="removeUtrustningBTN" min="-2" pref="32" max="-2" attributes="0"/>
-              <EmptySpace pref="54" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="changeOmrådesChefBTN" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="changeKontorsChefBTN" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="118" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -93,6 +124,27 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removeUtrustningBTNActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="changeOmr&#xe5;desChefBTN">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra omr&#xe5;deschef"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="registerUtrustning">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Registrera Utrustning"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerUtrustningActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="changeKontorsChefBTN">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc4;ndra kontorschef"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="changeKontorsChefBTNActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
