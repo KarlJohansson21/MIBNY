@@ -28,6 +28,7 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="registreraAgentBTN" max="32767" attributes="0"/>
                   <Component id="registreraAlienBTN" max="32767" attributes="0"/>
+                  <Component id="removeAgentBTN" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="146" max="32767" attributes="0"/>
           </Group>
@@ -40,7 +41,9 @@
               <Component id="registreraAgentBTN" min="-2" pref="36" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="registreraAlienBTN" min="-2" pref="34" max="-2" attributes="0"/>
-              <EmptySpace pref="110" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="removeAgentBTN" min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace pref="60" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -58,6 +61,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Registrera Alien"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registreraAlienBTNActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="removeAgentBTN">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ta bort Agent"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removeAgentBTNActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

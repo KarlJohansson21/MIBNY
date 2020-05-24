@@ -5,6 +5,8 @@
  */
 package mib1;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -34,4 +36,28 @@ public class valideringsklass {
         }
         return resultat;
     }
+   /* public static boolean kollaDatum(String korrektDatumFormat) {
+        boolean result = false;
+
+        //Sträng med förbestämd "mall" om hur det inskicade strängvärdet ska se ut.
+        String regExDatum = "\\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|[3][01])";
+
+        //Om det inskicade strängvärdet matchar regexsträngen ovan.
+        if (korrektDatumFormat.matches(regExDatum)) {
+
+            //Skapar nytt SimpleDateFormat objekt med formatet "yyyy-MM-dd".
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+            try {
+                sdf.parse(korrektDatumFormat);
+                result = true;
+            } catch (ParseException e) {
+                //
+            }
+        }
+        if (!result) {
+            JOptionPane.showMessageDialog(null, "Fyll i datum enligt följande mall: \"YYYY-MM-DD\"");
+        }
+        return result;
+    }*/
 }

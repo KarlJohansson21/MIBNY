@@ -54,15 +54,12 @@
                               <Component id="registreraAgentBTN" alignment="0" max="32767" attributes="0"/>
                               <Component id="områdeCombo" alignment="0" max="32767" attributes="0"/>
                               <Component id="tfnTextField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="doeTextField" max="32767" attributes="0"/>
+                              <Component id="jButton1" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="kontorsNamnTextField" max="32767" attributes="0"/>
-                      <Component id="kontorsnamnLBL" pref="140" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="70" max="32767" attributes="0"/>
+                  <EmptySpace pref="216" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -76,27 +73,24 @@
                   <Component id="tfnTextField" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="anställningsdatumLBL" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="doeTextField" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="isAdminCombo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="agentTypLBL" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="kontorsnamnLBL" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="agentTypLBL" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="agentTypCombo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="kontorsNamnTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="agentTypCombo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="områdeCombo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="registreraAgentBTN" min="-2" pref="32" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="18" max="32767" attributes="0"/>
+                  <EmptySpace pref="7" max="32767" attributes="0"/>
+                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -235,12 +229,15 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="kontorsNamnTextField">
+        <Component class="javax.swing.JTextField" name="doeTextField">
         </Component>
-        <Component class="javax.swing.JLabel" name="kontorsnamnLBL">
+        <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Kontorsnamn"/>
+            <Property name="text" type="java.lang.String" value="Tillbaka"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

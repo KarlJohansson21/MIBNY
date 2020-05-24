@@ -40,6 +40,8 @@ public class AgentInloggad extends javax.swing.JFrame {
         bytlösen = new javax.swing.JButton();
         utrustningBTN = new javax.swing.JButton();
         områdeschefBTN = new javax.swing.JButton();
+        registerAlienBTN = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,6 +75,20 @@ public class AgentInloggad extends javax.swing.JFrame {
             }
         });
 
+        registerAlienBTN.setText("Registrera Alien");
+        registerAlienBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerAlienBTNActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Ändra info Alien");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -88,7 +104,9 @@ public class AgentInloggad extends javax.swing.JFrame {
                             .addComponent(bytlösen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(logoutBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(utrustningBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(områdeschefBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(områdeschefBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(registerAlienBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(96, 140, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -96,15 +114,19 @@ public class AgentInloggad extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(bytlösen, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(25, 25, 25)
+                .addComponent(registerAlienBTN)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(utrustningBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bytlösen, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(områdeschefBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(logoutBTN)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addGap(33, 33, 33))
         );
 
         pack();
@@ -137,6 +159,20 @@ public class AgentInloggad extends javax.swing.JFrame {
         chef.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_områdeschefBTNActionPerformed
+
+    private void registerAlienBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerAlienBTNActionPerformed
+        // TODO add your handling code here:
+        agentAlien nyAlien = new agentAlien(idb);
+        nyAlien.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_registerAlienBTNActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        AgentUppdateraAlienA  uppdatera = new AgentUppdateraAlienA(idb); 
+        uppdatera.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,9 +211,11 @@ public class AgentInloggad extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bytlösen;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton logoutBTN;
     private javax.swing.JButton områdeschefBTN;
+    private javax.swing.JButton registerAlienBTN;
     private javax.swing.JButton utrustningBTN;
     // End of variables declaration//GEN-END:variables
 }

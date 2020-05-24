@@ -33,6 +33,7 @@ public class AdminFonster extends javax.swing.JFrame {
 
         registreraAgentBTN = new javax.swing.JButton();
         registreraAlienBTN = new javax.swing.JButton();
+        removeAgentBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,6 +45,18 @@ public class AdminFonster extends javax.swing.JFrame {
         });
 
         registreraAlienBTN.setText("Registrera Alien");
+        registreraAlienBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registreraAlienBTNActionPerformed(evt);
+            }
+        });
+
+        removeAgentBTN.setText("Ta bort Agent");
+        removeAgentBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeAgentBTNActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -53,7 +66,8 @@ public class AdminFonster extends javax.swing.JFrame {
                 .addGap(139, 139, 139)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(registreraAgentBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(registreraAlienBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(registreraAlienBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(removeAgentBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(146, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -63,7 +77,9 @@ public class AdminFonster extends javax.swing.JFrame {
                 .addComponent(registreraAgentBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(registreraAlienBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(removeAgentBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         pack();
@@ -75,6 +91,20 @@ public class AdminFonster extends javax.swing.JFrame {
         nyAgent.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_registreraAgentBTNActionPerformed
+
+    private void registreraAlienBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registreraAlienBTNActionPerformed
+        // TODO add your handling code here:
+        agentAlien nyAlien = new agentAlien(idb);
+        nyAlien.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_registreraAlienBTNActionPerformed
+
+    private void removeAgentBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeAgentBTNActionPerformed
+        // TODO add your handling code here:
+        taBortAgent remove = new taBortAgent(idb);
+        remove.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_removeAgentBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -114,5 +144,6 @@ public class AdminFonster extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton registreraAgentBTN;
     private javax.swing.JButton registreraAlienBTN;
+    private javax.swing.JButton removeAgentBTN;
     // End of variables declaration//GEN-END:variables
 }

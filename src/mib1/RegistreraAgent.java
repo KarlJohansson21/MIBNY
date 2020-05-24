@@ -4,9 +4,13 @@
  * and open the template in the editor.
  */
 package mib1;
+import java.text.ParseException;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFormattedTextField;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -24,7 +28,7 @@ public class RegistreraAgent extends javax.swing.JFrame {
     public RegistreraAgent(InfDB idb) {
         initComponents();
         this.idb = idb;
-        kontorsNamnTextField.setVisible(true);
+       
         
        
     }
@@ -54,8 +58,8 @@ public class RegistreraAgent extends javax.swing.JFrame {
         registreraAgentBTN = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         områdeCombo = new javax.swing.JComboBox<>();
-        kontorsNamnTextField = new javax.swing.JTextField();
-        kontorsnamnLBL = new javax.swing.JLabel();
+        doeTextField = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -127,7 +131,12 @@ public class RegistreraAgent extends javax.swing.JFrame {
 
         områdeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Svealand", "Götaland", "Norrland" }));
 
-        kontorsnamnLBL.setText("Kontorsnamn");
+        jButton1.setText("Tillbaka");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout grundPanelLayout = new javax.swing.GroupLayout(grundPanel);
         grundPanel.setLayout(grundPanelLayout);
@@ -148,12 +157,10 @@ public class RegistreraAgent extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(registreraAgentBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(områdeCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(tfnTextField))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(grundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(kontorsNamnTextField)
-                    .addComponent(kontorsnamnLBL, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
-                .addContainerGap(70, Short.MAX_VALUE))
+                            .addComponent(tfnTextField)
+                            .addComponent(doeTextField)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(216, Short.MAX_VALUE))
         );
         grundPanelLayout.setVerticalGroup(
             grundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,25 +172,24 @@ public class RegistreraAgent extends javax.swing.JFrame {
                 .addComponent(tfnTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(anställningsdatumLBL)
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(doeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(isAdminCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(grundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(agentTypLBL)
-                    .addComponent(kontorsnamnLBL))
+                .addComponent(agentTypLBL)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(grundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(agentTypCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(kontorsNamnTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(agentTypCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(områdeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(registreraAgentBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 18, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addComponent(jButton1))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -205,18 +211,30 @@ public class RegistreraAgent extends javax.swing.JFrame {
         
         String user = NamnTextField.getText();
         String pass = agentLösenTextField.getText();
-        String tfn = tfnTextField.getText();
-        String doe = datechooserField.getDate().toString();
+        String tfn = tfnTextField.getSelectedText();
+        String doe = doeTextField.getText();
         String admin = isAdminCombo.getSelectedItem().toString();
         String typ = agentTypCombo.getSelectedItem().toString();
         String område = områdeCombo.getSelectedItem().toString();
+        
         if(valideringsklass.tomtFalt(NamnTextField) && valideringsklass.tomtFalt(agentLösenTextField) && valideringsklass.tomtFalt(tfnTextField) && valideringsklass.tomCombo(isAdminCombo) && valideringsklass.tomCombo(agentTypCombo)){
         try{
+            String Admin = "";
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            Date parsedate = format.parse(doe);
+            java.sql.Date daydate = new java.sql.Date(parsedate.getTime());
+            
             String add = idb.getAutoIncrement("Agent","Agent_ID");
             int convertID = Integer.parseInt(add);
             String benämning = idb.fetchSingle("Select omrades_id from omrade where benamning = " +"'"+ område +"'" );
             int convertBenämning = Integer.parseInt(benämning);
-            idb.insert("Insert into Agent values  ('" + convertID + "','" + user + "','"+ tfn + "','" + doe + "','" + admin + "','" + pass + "','" + convertBenämning + "')");
+            if(admin.equals("Ja")){
+                Admin = "J";
+            }
+            else{
+                Admin = "N";
+            }
+            idb.insert("Insert into Agent values  ('" + convertID + "','" + user + "','"+ tfn + "','" + daydate + "','" + Admin + "','" + pass + "','" + convertBenämning + "')");
            if(typ.equals("Kontorschef")){
                idb.update("Update kontorschef set agent_id = "+ convertID);
                //idb.update("Update kontorschef set kontorsbeteckning = " + "'"+ kontorsNamnTextField.getText() +"'");
@@ -226,7 +244,7 @@ public class RegistreraAgent extends javax.swing.JFrame {
                idb.insert("Insert into faltagent  values ('" + convertID + "')");
            }
            else{
-               idb.update("Update omradeschef set agent_ID = " + convertID + ", omrade = " + "'" + område + "'" + " where omrade = " + "'" + område + "'");
+               idb.update("Update omradeschef set agent_ID = " + convertID + ", omrade = " + "'" + convertBenämning + "'" + " where omrade = " + "'" + convertBenämning + "'");
            }
            
            
@@ -234,12 +252,17 @@ public class RegistreraAgent extends javax.swing.JFrame {
             
         
         }
+        catch (ParseException e) {
+            Logger.getLogger(RegistreraAgent.class.getName()).log(Level.SEVERE, null, e);
+            JOptionPane.showMessageDialog(null, "Anställningsdatumet måste vara i formatet yyyy-MM-dd, försök igen!");
+        }
         catch(InfException e){
         JOptionPane.showMessageDialog(null, "Något gick fel");
         System.out.println(e.getMessage());
 
         }
-       }
+          } 
+       
     }//GEN-LAST:event_registreraAgentBTNActionPerformed
 
     private void agentTypComboItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_agentTypComboItemStateChanged
@@ -249,22 +272,16 @@ public class RegistreraAgent extends javax.swing.JFrame {
 
     private void agentTypComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agentTypComboActionPerformed
         // TODO add your handling code here:
-        String typ = agentTypCombo.getSelectedItem().toString();
-         if(typ.equals("Fältagent")){
-                kontorsNamnTextField.setVisible(false);
-                kontorsnamnLBL.setVisible(false);
-            }
-         else if(typ.equals("Områdeschef")){
-              kontorsNamnTextField.setVisible(false);
-              kontorsnamnLBL.setVisible(false);
-         }
-         else{
-             kontorsNamnTextField.setVisible(true);
-             kontorsnamnLBL.setVisible(true);
-         }
         
 
     }//GEN-LAST:event_agentTypComboActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        AdminFonster tbx = new AdminFonster(idb);
+        tbx.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -312,12 +329,12 @@ public class RegistreraAgent extends javax.swing.JFrame {
     private javax.swing.JLabel agentTypLBL;
     private javax.swing.JLabel anställningsdatumLBL;
     private javax.swing.JLabel användarNamnLBL;
+    private javax.swing.JTextField doeTextField;
     private javax.swing.JPanel grundPanel;
     private javax.swing.JComboBox<String> isAdminCombo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField kontorsNamnTextField;
-    private javax.swing.JLabel kontorsnamnLBL;
     private javax.swing.JLabel lösenordLBL;
     private javax.swing.JComboBox<String> områdeCombo;
     private javax.swing.JButton registreraAgentBTN;
