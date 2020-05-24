@@ -34,6 +34,8 @@ public class AdminFonster extends javax.swing.JFrame {
         registreraAgentBTN = new javax.swing.JButton();
         registreraAlienBTN = new javax.swing.JButton();
         removeAgentBTN = new javax.swing.JButton();
+        removeAlienBTN = new javax.swing.JButton();
+        removeUtrustningBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,6 +60,20 @@ public class AdminFonster extends javax.swing.JFrame {
             }
         });
 
+        removeAlienBTN.setText("Ta bort Alien");
+        removeAlienBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeAlienBTNActionPerformed(evt);
+            }
+        });
+
+        removeUtrustningBTN.setText("Ta bort Utrustning");
+        removeUtrustningBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeUtrustningBTNActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -67,19 +83,25 @@ public class AdminFonster extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(registreraAgentBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(registreraAlienBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(removeAgentBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(146, Short.MAX_VALUE))
+                    .addComponent(removeAgentBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(removeAlienBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(removeUtrustningBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(102, 102, 102)
+                .addGap(55, 55, 55)
                 .addComponent(registreraAgentBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(registreraAlienBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(removeAgentBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(registreraAlienBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(removeAlienBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(removeUtrustningBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         pack();
@@ -105,6 +127,20 @@ public class AdminFonster extends javax.swing.JFrame {
         remove.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_removeAgentBTNActionPerformed
+
+    private void removeAlienBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeAlienBTNActionPerformed
+        // TODO add your handling code here:
+        taBortAlien remove = new taBortAlien(idb);
+        remove.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_removeAlienBTNActionPerformed
+
+    private void removeUtrustningBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeUtrustningBTNActionPerformed
+        // TODO add your handling code here:
+        taBortUtrustning remove = new taBortUtrustning(idb);
+        remove.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_removeUtrustningBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -145,5 +181,7 @@ public class AdminFonster extends javax.swing.JFrame {
     private javax.swing.JButton registreraAgentBTN;
     private javax.swing.JButton registreraAlienBTN;
     private javax.swing.JButton removeAgentBTN;
+    private javax.swing.JButton removeAlienBTN;
+    private javax.swing.JButton removeUtrustningBTN;
     // End of variables declaration//GEN-END:variables
 }
