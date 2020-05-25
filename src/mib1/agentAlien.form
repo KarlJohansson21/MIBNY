@@ -50,14 +50,12 @@
                       <EmptySpace min="91" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="phoneLBL" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="platsLBL" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="chefLBL" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                              <Component id="chefVal" alignment="0" pref="93" max="32767" attributes="0"/>
-                              <Component id="platsVal" alignment="0" max="32767" attributes="0"/>
-                              <Component id="phoneVal" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="platsLBL" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="chefLBL" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <Component id="chefVal" alignment="0" pref="93" max="32767" attributes="0"/>
+                          <Component id="platsVal" alignment="0" max="32767" attributes="0"/>
+                          <Component id="phoneVal" alignment="0" max="32767" attributes="0"/>
                           <Component id="textVal" pref="114" max="32767" attributes="0"/>
                           <Component id="valLBL" alignment="0" max="32767" attributes="0"/>
                       </Group>
