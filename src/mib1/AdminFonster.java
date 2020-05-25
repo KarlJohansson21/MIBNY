@@ -80,6 +80,11 @@ public class AdminFonster extends javax.swing.JFrame {
         });
 
         changeOmrådesChefBTN.setText("Ändra områdeschef");
+        changeOmrådesChefBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changeOmrådesChefBTNActionPerformed(evt);
+            }
+        });
 
         registerUtrustning.setText("Registrera Utrustning");
         registerUtrustning.addActionListener(new java.awt.event.ActionListener() {
@@ -227,6 +232,13 @@ public class AdminFonster extends javax.swing.JFrame {
         ny.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_görAdminBTNActionPerformed
+
+    private void changeOmrådesChefBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeOmrådesChefBTNActionPerformed
+        // TODO add your handling code here:
+        nyOmrådeschef ny = new nyOmrådeschef(idb);
+        ny.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_changeOmrådesChefBTNActionPerformed
 
     /**
      * @param args the command line arguments
