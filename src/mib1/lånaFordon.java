@@ -35,6 +35,7 @@ public class lånaFordon extends javax.swing.JFrame {
 
         tbxBTN = new javax.swing.JButton();
         låna = new javax.swing.JButton();
+        returnBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,6 +53,13 @@ public class lånaFordon extends javax.swing.JFrame {
             }
         });
 
+        returnBTN.setText("Lämna tillbaka fordon");
+        returnBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnBTNActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -59,18 +67,21 @@ public class lånaFordon extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(107, 107, 107)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(låna, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
-                    .addComponent(tbxBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(låna, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tbxBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(returnBTN, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE))
                 .addContainerGap(141, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(106, 106, 106)
+                .addGap(76, 76, 76)
                 .addComponent(låna, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(returnBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tbxBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         pack();
@@ -155,6 +166,44 @@ public class lånaFordon extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tbxBTNActionPerformed
 
+    private void returnBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnBTNActionPerformed
+        // TODO add your handling code here:
+          // TODO add your handling code here:
+        int inmatning = JOptionPane.showConfirmDialog(null, "Vill du lämna tillbaka fordonet?", "Lämna fordon", 2);
+        //Hämtar in dagens datum så att det kan matas in i databasen under utkvitteringsdatum. Utkvitteringsdatum är alltid dagens datum på sättet vi gjort det
+        
+        //Hämtar inloggad användare med hjälp av hamtaAnvandare metoden från huvudfönster
+        String user = huvudFonster.hamtaAnvandare();
+        //Skapar en arraylist med all utrustning
+        ArrayList<String> lånatFordon = new ArrayList<String>();
+        //0 = att användaren tryck ja på om den vill låna utrustning
+        if(inmatning == 0){
+            try{
+                int convertId = Integer.parseInt(idb.fetchSingle("Select agent_id from agent where namn = " + "'" + user + "'"));
+                lånatFordon = idb.fetchColumn("Select fordonsbeskrivning from fordon");
+                //Görs om till ett arrayobjekt
+                 Object[] fordonObjekt = lånatFordon.toArray();
+                 Object valtFordon = JOptionPane.showInputDialog(null, "Välj fordon att lämna tillbaka", "", JOptionPane.QUESTION_MESSAGE, null, fordonObjekt, fordonObjekt[0]);
+                 String valtFordonToString = String.valueOf(valtFordon);
+                 String valtFordonsRegnr = idb.fetchSingle("Select fordons_id from fordon where fordonsbeskrivning = " + "'" + valtFordonToString + "'");
+                 String lånad = idb.fetchSingle("select agent_id from innehar_fordon where fordons_id = " + "'" + valtFordonsRegnr + "'" + "and agent_id = " + "'" + convertId +"'" );
+                 
+                 if(lånad == null){
+                     JOptionPane.showMessageDialog(null, "Du kan ju inte lämna tillbaka något du inte lånar!");
+                 }
+                 else{
+                 idb.delete("Delete from innehar_fordon where fordons_id = " + "'" + valtFordonsRegnr + "'" + "and agent_id = " + "'" + convertId + "'");
+                 JOptionPane.showMessageDialog(null, "Fordonet har lämnats tillbaka!");
+            }
+            }
+            catch(InfException e ){
+                JOptionPane.showMessageDialog(null, "Har du verkligen något att lämna tillbaka?");
+                System.out.println(e.getMessage());
+            }
+        
+        }
+    }//GEN-LAST:event_returnBTNActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -193,6 +242,7 @@ public class lånaFordon extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton låna;
+    private javax.swing.JButton returnBTN;
     private javax.swing.JButton tbxBTN;
     // End of variables declaration//GEN-END:variables
 }

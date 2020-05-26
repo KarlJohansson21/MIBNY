@@ -36,6 +36,7 @@ public class lånaUtrustning extends javax.swing.JFrame {
 
         lånaBTN = new javax.swing.JButton();
         tbxBTN = new javax.swing.JButton();
+        returnBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,6 +54,13 @@ public class lånaUtrustning extends javax.swing.JFrame {
             }
         });
 
+        returnBTN.setText("Lämna tillbaka utrustning");
+        returnBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnBTNActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -60,18 +68,21 @@ public class lånaUtrustning extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(120, 120, 120)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lånaBTN, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                    .addComponent(tbxBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(135, Short.MAX_VALUE))
+                    .addComponent(lånaBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tbxBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(returnBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(91, 91, 91)
+                .addGap(51, 51, 51)
                 .addComponent(lånaBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(returnBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tbxBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         pack();
@@ -155,6 +166,43 @@ public class lånaUtrustning extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tbxBTNActionPerformed
 
+    private void returnBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnBTNActionPerformed
+        // TODO add your handling code here:
+        int inmatning = JOptionPane.showConfirmDialog(null, "Vill du lämna tillbaka utrustning?", "Lämna utrustning", 2);
+        //Hämtar in dagens datum så att det kan matas in i databasen under utkvitteringsdatum. Utkvitteringsdatum är alltid dagens datum på sättet vi gjort det
+        LocalDate date = LocalDate.now();
+        //Hämtar inloggad användare med hjälp av hamtaAnvandare metoden från huvudfönster
+        String user = huvudFonster.hamtaAnvandare();
+        //Skapar en arraylist med all utrustning
+        ArrayList<String> lånadUtrustning = new ArrayList<String>();
+        //0 = att användaren tryck ja på om den vill låna utrustning
+        if(inmatning == 0){
+            try{
+                int convertId = Integer.parseInt(idb.fetchSingle("Select agent_id from agent where namn = " + "'" + user + "'"));
+                lånadUtrustning = idb.fetchColumn("Select benamning from utrustning");
+                //Görs om till ett arrayobjekt
+                 Object[] utrustningObjekt = lånadUtrustning.toArray();
+                 Object valdUtrustning = JOptionPane.showInputDialog(null, "Välj utrustning att lämna", "", JOptionPane.QUESTION_MESSAGE, null, utrustningObjekt, utrustningObjekt[0]);
+                 String valdUtrustningToString = String.valueOf(valdUtrustning);
+                 String valtUtrustningId = idb.fetchSingle("Select utrustnings_id from utrustning where benamning = " + "'" + valdUtrustningToString + "'");
+                 String lånad = idb.fetchSingle("select agent_id from innehar_utrustning where utrustnings_id = " + "'" + valtUtrustningId + "'" + "and agent_id = " + "'" + convertId +"'" );
+                 
+                 if(lånad == null){
+                     JOptionPane.showMessageDialog(null, "Du kan ju inte lämna tillbaka något du inte lånar!");
+                 }
+                 else{
+                 idb.delete("Delete from innehar_utrustning where utrustnings_id = " + "'" + valtUtrustningId + "'" + "and agent_id = " + "'" + convertId + "'");
+                 JOptionPane.showMessageDialog(null, "Utrustningen har lämnats tillbaka!");
+            }
+            }
+            catch(InfException e ){
+                JOptionPane.showMessageDialog(null, "Har du verkligen något att lämna tillbaka?");
+                System.out.println(e.getMessage());
+            }
+        
+        }
+    }//GEN-LAST:event_returnBTNActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -192,6 +240,7 @@ public class lånaUtrustning extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton lånaBTN;
+    private javax.swing.JButton returnBTN;
     private javax.swing.JButton tbxBTN;
     // End of variables declaration//GEN-END:variables
 }
