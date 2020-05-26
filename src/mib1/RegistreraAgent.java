@@ -48,7 +48,6 @@ public class RegistreraAgent extends javax.swing.JFrame {
         lösenordLBL = new javax.swing.JLabel();
         användarNamnLBL = new javax.swing.JLabel();
         agentLösenTextField = new javax.swing.JPasswordField();
-        tfnTextField = new javax.swing.JFormattedTextField();
         isAdminCombo = new javax.swing.JComboBox<>();
         agentTypCombo = new javax.swing.JComboBox<>();
         agentTypLBL = new javax.swing.JLabel();
@@ -58,8 +57,9 @@ public class RegistreraAgent extends javax.swing.JFrame {
         registreraAgentBTN = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         områdeCombo = new javax.swing.JComboBox<>();
-        doeTextField = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        väljDatumDatePicker = new com.github.lgooddatepicker.components.DatePicker();
+        tfnTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,12 +91,6 @@ public class RegistreraAgent extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(agentLösenTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-
-        try {
-            tfnTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###-########")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
 
         isAdminCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nej", "Ja" }));
 
@@ -138,6 +132,12 @@ public class RegistreraAgent extends javax.swing.JFrame {
             }
         });
 
+        tfnTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfnTextFieldActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout grundPanelLayout = new javax.swing.GroupLayout(grundPanel);
         grundPanel.setLayout(grundPanelLayout);
         grundPanelLayout.setHorizontalGroup(
@@ -157,9 +157,9 @@ public class RegistreraAgent extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(registreraAgentBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(områdeCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(tfnTextField)
-                            .addComponent(doeTextField)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(väljDatumDatePicker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tfnTextField))))
                 .addContainerGap(216, Short.MAX_VALUE))
         );
         grundPanelLayout.setVerticalGroup(
@@ -173,7 +173,7 @@ public class RegistreraAgent extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(anställningsdatumLBL)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(doeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(väljDatumDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -211,13 +211,13 @@ public class RegistreraAgent extends javax.swing.JFrame {
         
         String user = NamnTextField.getText();
         String pass = agentLösenTextField.getText();
-        String tfn = tfnTextField.getSelectedText();
-        String doe = doeTextField.getText();
+        String tfn = tfnTextField.getText();
+        String doe = väljDatumDatePicker.getDateStringOrEmptyString();
         String admin = isAdminCombo.getSelectedItem().toString();
         String typ = agentTypCombo.getSelectedItem().toString();
         String område = områdeCombo.getSelectedItem().toString();
         
-        if(valideringsklass.tomtFalt(NamnTextField) && valideringsklass.tomtFalt(agentLösenTextField) && valideringsklass.tomtFalt(tfnTextField) && valideringsklass.tomCombo(isAdminCombo) && valideringsklass.tomCombo(agentTypCombo)){
+        if(valideringsklass.tomtFalt(NamnTextField) && valideringsklass.tomtFalt(agentLösenTextField) && valideringsklass.tomtFalt(tfnTextField) && valideringsklass.tomCombo(isAdminCombo) && valideringsklass.tomCombo(agentTypCombo) && valideringsklass.tomDate(väljDatumDatePicker)){
         try{
             String Admin = "";
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -283,6 +283,10 @@ public class RegistreraAgent extends javax.swing.JFrame {
         tbx.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void tfnTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfnTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfnTextFieldActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -329,7 +333,6 @@ public class RegistreraAgent extends javax.swing.JFrame {
     private javax.swing.JLabel agentTypLBL;
     private javax.swing.JLabel anställningsdatumLBL;
     private javax.swing.JLabel användarNamnLBL;
-    private javax.swing.JTextField doeTextField;
     private javax.swing.JPanel grundPanel;
     private javax.swing.JComboBox<String> isAdminCombo;
     private javax.swing.JButton jButton1;
@@ -338,7 +341,8 @@ public class RegistreraAgent extends javax.swing.JFrame {
     private javax.swing.JLabel lösenordLBL;
     private javax.swing.JComboBox<String> områdeCombo;
     private javax.swing.JButton registreraAgentBTN;
-    private javax.swing.JFormattedTextField tfnTextField;
+    private javax.swing.JTextField tfnTextField;
     private javax.swing.JPanel topPanel;
+    private com.github.lgooddatepicker.components.DatePicker väljDatumDatePicker;
     // End of variables declaration//GEN-END:variables
 }

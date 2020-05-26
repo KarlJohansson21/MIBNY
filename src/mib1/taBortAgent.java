@@ -250,20 +250,25 @@ private static InfDB idb;
                 }
                 
             }
-            catch(Exception e){
+            catch(InfException e){
                 JOptionPane.showMessageDialog(null, "Agenten hittades inte, dubbelkolla stavningen och försök igen!");
             }
-        }
+            catch (NumberFormatException e){
+                 
+            }
+            }
+        
        
     }//GEN-LAST:event_sökAgentBTNActionPerformed
-
+        
+        
     private void removeAgentBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeAgentBTNActionPerformed
         // TODO add your handling code here:
          if (valideringsklass.tomtFalt(idTextField)) {
             ArrayList<String> agentNamn = new ArrayList<String>();
-            int input = JOptionPane.showConfirmDialog(null, "Vill du ta bort agenten?", "Ta bort agenten", 2);
+            int inmatning = JOptionPane.showConfirmDialog(null, "Vill du ta bort agenten?", "Ta bort agenten", 2);
 
-            if (input == 0) {
+            if (inmatning == 0) {
                 try {
 
                     
@@ -279,8 +284,16 @@ private static InfDB idb;
                         idb.update("Update alien set ansvarig_agent = " + "'" + nyAnsvarigId + "'" + "where ansvarig_agent = " + "'" + convertId + "'");
 
                     }
+                    // If agent är områdeschef
+                    else if(convertId == Integer.parseInt(idb.fetchSingle("Select agent_id from omradeschef"))){
+                         Object nyOmrådeschef = JOptionPane.showInputDialog(null, "Välj ny områdeschef", "Agenten är områdeschef", JOptionPane.QUESTION_MESSAGE, null, agentObjekt, agentObjekt[0]);
+                         String nyOmrådeschefToString = String.valueOf(nyOmrådeschef);
+                         int nyOmrådeschefId = Integer.parseInt(idb.fetchSingle("select agent_id from agent where namn = " + "'" + nyOmrådeschefToString + "'"));
+                         idb.update("update omradeschef set agent_id = " + "'" + nyOmrådeschefId + "'" + "where agent_id = " + "'" + convertId + "'");
+                    
+                    }
                     //If agent är kontorschef
-                    if (convertId == Integer.parseInt(idb.fetchSingle("SELECT AGENT_ID FROM KONTORSCHEF"))) {
+                    else if (convertId == Integer.parseInt(idb.fetchSingle("SELECT AGENT_ID FROM KONTORSCHEF"))) {
                         Object nyKontorsChef = JOptionPane.showInputDialog(null, "Välj ny kontorschef", "Agenten är kontorschef", JOptionPane.QUESTION_MESSAGE, null, agentObjekt, agentObjekt[0]);
                         String nyKontorsChefToString = String.valueOf(nyKontorsChef);
                         int nyKontorsChefId = Integer.parseInt(idb.fetchSingle("Select agent_id from agent where namn  = " + "'" + nyKontorsChefToString + "'"));
@@ -300,8 +313,8 @@ private static InfDB idb;
                     JOptionPane.showMessageDialog(null, "Agenten hittades inte, dubbelkolla så att stavningen är korrekt");
                     System.out.println(e.getMessage());
                 }
-                catch (java.lang.NumberFormatException e) {
-                  JOptionPane.showMessageDialog(null, "Agenten hittades inte, dubbelkolla så att stavningen är korrekt");
+                catch (NumberFormatException e) {
+                  
             }
             }
         }

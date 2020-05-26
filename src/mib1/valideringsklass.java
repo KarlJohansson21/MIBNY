@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import com.github.lgooddatepicker.components.DatePicker;
 
 /**
  *
@@ -36,7 +37,17 @@ public class valideringsklass {
         }
         return resultat;
     }
-   /* public static boolean kollaDatum(String korrektDatumFormat) {
+    public static boolean tomDate(DatePicker dateCheck){
+        boolean resultat = true;
+        
+        if(dateCheck.getDateStringOrEmptyString().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Du måste fylla i ett datum!");
+            resultat = false;
+        }
+        return resultat;
+    }
+    
+    /* public static boolean kollaDatum(String korrektDatumFormat) {
         boolean result = false;
 
         //Sträng med förbestämd "mall" om hur det inskicade strängvärdet ska se ut.
