@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 package mib1;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
+import java.time.LocalDate;
 /**
  *
  * @author KarlJ
@@ -16,8 +18,10 @@ public class uppdateraAgent extends javax.swing.JFrame {
      * Creates new form uppdateraAgent
      */
     public uppdateraAgent(InfDB idb) {
+        
         initComponents();
         this.idb = idb;
+        
     }
 
     /**
@@ -29,57 +33,212 @@ public class uppdateraAgent extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        userTextField = new javax.swing.JTextField();
+        sökBTN = new javax.swing.JButton();
+        userIdTextField = new javax.swing.JTextField();
+        AnvändarIdLBL = new javax.swing.JLabel();
+        sökLBL = new javax.swing.JLabel();
+        namnTextField = new javax.swing.JTextField();
+        namnLBL = new javax.swing.JLabel();
+        tfnTextField = new javax.swing.JTextField();
+        tfnLBL = new javax.swing.JLabel();
+        områdeCombo = new javax.swing.JComboBox<>();
+        områdeLBL = new javax.swing.JLabel();
+        tbxBTN = new javax.swing.JButton();
+        ändraBTN = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        sökBTN.setText("Sök");
+        sökBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sökBTNActionPerformed(evt);
+            }
+        });
+
+        userIdTextField.setEditable(false);
+
+        AnvändarIdLBL.setText("AgentID");
+
+        sökLBL.setText("Sök på agent du vill uppdatera");
+
+        namnLBL.setText("Namn");
+
+        tfnLBL.setText("Telefon");
+
+        områdeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Svealand", "Götaland", "Norrland" }));
+
+        områdeLBL.setText("Område");
+
+        tbxBTN.setText("Tillbaka");
+        tbxBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbxBTNActionPerformed(evt);
+            }
+        });
+
+        ändraBTN.setText("Ändra");
+        ändraBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ändraBTNActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(userTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
+                        .addComponent(sökBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sökLBL)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(områdeCombo, 0, 161, Short.MAX_VALUE)
+                                    .addComponent(områdeLBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(tbxBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ändraBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(AnvändarIdLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(namnLBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(userIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(namnTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(tfnTextField)
+                                .addComponent(tfnLBL, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)))))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addComponent(sökLBL)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(userTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sökBTN))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AnvändarIdLBL)
+                    .addComponent(namnLBL)
+                    .addComponent(tfnLBL))
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(userIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(namnTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfnTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(4, 4, 4)
+                .addComponent(områdeLBL)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(områdeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ändraBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(66, 66, 66)
+                .addComponent(tbxBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void sökBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sökBTNActionPerformed
+        // TODO add your handling code here:
+         if(valideringsklass.tomtFalt(userTextField)){
+            String valdAgent = userTextField.getText();
+         
+            
+            try{
+                String agentId = idb.fetchSingle("Select agent_id from agent where namn = " + "'" + valdAgent + "'");
+                userIdTextField.setText(agentId);
+                int convertId = Integer.parseInt(agentId);
+                
+                String agentNamn = idb.fetchSingle("Select namn from agent where agent_id = " + "'" + convertId +"'");
+                namnTextField.setText(agentNamn);
+                
+                String tfn = idb.fetchSingle("Select telefon from agent where agent_id = " +"'" +convertId +"'");
+                tfnTextField.setText(tfn);
+                
+                
+                
+                
+                String plats = idb.fetchSingle("Select benamning from omrade join agent on agent.omrade = omrade.omrades_id where agent_id = " +"'" + convertId +"'");
+                områdeCombo.getModel().setSelectedItem(plats);
+                
+               
+                
+            }
+            catch(InfException e){
+                JOptionPane.showMessageDialog(null, "Agenten hittades inte, dubbelkolla stavningen och försök igen!");
+            }
+           
+            }
+        
+    }//GEN-LAST:event_sökBTNActionPerformed
+
+    private void tbxBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxBTNActionPerformed
+        // TODO add your handling code here:
+        AdminFonster tbx = new AdminFonster(idb);
+        tbx.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_tbxBTNActionPerformed
+
+    private void ändraBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ändraBTNActionPerformed
+        // TODO add your handling code here:
+        if (valideringsklass.tomtFalt(userIdTextField) && valideringsklass.tomtFalt(tfnTextField) && valideringsklass.tomtFalt(namnTextField) && valideringsklass.tomtFalt(userTextField)) {
+            String namn = namnTextField.getText();
+            String tfn = tfnTextField.getText();
+            String område = områdeCombo.getModel().getSelectedItem().toString();
+            try {
+                String agentId = idb.fetchSingle("Select agent_id from agent where namn = " + "'" + userTextField.getText() + "'");
+                int convertId = Integer.parseInt(agentId);
+
+                String områdesId2 = idb.fetchSingle("Select omrades_id from omrade where benamning = " + "'" + område + "'");
+                int områdesId = Integer.parseInt(områdesId2);
+                //idb.fetchSingle("Select omrades_id from omrade where benamning = " + "'" + område + "'");
+
+                idb.update("Update agent set namn = " + "'" + namn + "'" + "where agent_id = " + "'" + convertId + "'");
+                idb.update("update agent set telefon = " + "'" + tfn + "'" + "Where agent_id = " + "'" + convertId + "'");
+                idb.update("update agent set omrade = " + "'" + områdesId + "'" + "Where agent_id = " + "'" + convertId + "'");
+                JOptionPane.showMessageDialog(null, "Agenten har uppdaterats!");
+                System.out.println(områdesId);
+
+            } catch (InfException e) {
+                System.out.println(e.getMessage());
+            }
+
+        }
+    }//GEN-LAST:event_ändraBTNActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(uppdateraAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(uppdateraAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(uppdateraAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(uppdateraAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new uppdateraAgent(idb).setVisible(true);
-            }
-        });
-    }
-
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel AnvändarIdLBL;
+    private javax.swing.JLabel namnLBL;
+    private javax.swing.JTextField namnTextField;
+    private javax.swing.JComboBox<String> områdeCombo;
+    private javax.swing.JLabel områdeLBL;
+    private javax.swing.JButton sökBTN;
+    private javax.swing.JLabel sökLBL;
+    private javax.swing.JButton tbxBTN;
+    private javax.swing.JLabel tfnLBL;
+    private javax.swing.JTextField tfnTextField;
+    private javax.swing.JTextField userIdTextField;
+    private javax.swing.JTextField userTextField;
+    private javax.swing.JButton ändraBTN;
     // End of variables declaration//GEN-END:variables
 }

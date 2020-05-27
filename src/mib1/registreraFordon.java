@@ -30,8 +30,6 @@ public class registreraFordon extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSpinField1 = new com.toedter.components.JSpinField();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         fIdTextField = new javax.swing.JTextField();
         regNrLBL = new javax.swing.JLabel();
         fordonsBeskrivningTextField = new javax.swing.JTextField();
@@ -39,8 +37,8 @@ public class registreraFordon extends javax.swing.JFrame {
         regDatePicker = new com.github.lgooddatepicker.components.DatePicker();
         regDateLBL = new javax.swing.JLabel();
         årsModellLBL = new javax.swing.JLabel();
-        jYearChooser1 = new com.toedter.calendar.JYearChooser();
         nyttFordonBTN = new javax.swing.JButton();
+        årsmodellYearChooser = new com.toedter.calendar.JYearChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,8 +49,6 @@ public class registreraFordon extends javax.swing.JFrame {
         regDateLBL.setText("Registreringsdatum");
 
         årsModellLBL.setText("Årsmodell");
-
-        jYearChooser1.setEndYear(2150);
 
         nyttFordonBTN.setText("Registrera nytt fordon");
         nyttFordonBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -66,23 +62,22 @@ public class registreraFordon extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(145, 145, 145)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(145, 145, 145)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(beskrivningLBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(regNrLBL, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                                .addComponent(regDateLBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(årsModellLBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(nyttFordonBTN)
-                            .addComponent(regDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fordonsBeskrivningTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(171, 171, 171)
-                        .addComponent(jYearChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(beskrivningLBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(regNrLBL, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                        .addComponent(regDateLBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(årsModellLBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(nyttFordonBTN)
+                    .addComponent(regDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fordonsBeskrivningTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(81, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(årsmodellYearChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(157, 157, 157))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,8 +97,8 @@ public class registreraFordon extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(årsModellLBL)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jYearChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(årsmodellYearChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
                 .addComponent(nyttFordonBTN)
                 .addContainerGap(40, Short.MAX_VALUE))
         );
@@ -116,7 +111,7 @@ public class registreraFordon extends javax.swing.JFrame {
         String reg = fIdTextField.getText();
         String modell = fordonsBeskrivningTextField.getText();
         String regDatum = regDatePicker.getDateStringOrEmptyString();
-        int år = jYearChooser1.getYear();
+        int år = årsmodellYearChooser.getYear();
         
         
         if(valideringsklass.tomtFalt(fIdTextField) && valideringsklass.tomtFalt(fordonsBeskrivningTextField) && valideringsklass.tomDate(regDatePicker)){
@@ -136,49 +131,17 @@ public class registreraFordon extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(registreraFordon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(registreraFordon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(registreraFordon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(registreraFordon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new registreraFordon(idb).setVisible(true);
-            }
-        });
-    }
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel beskrivningLBL;
     private javax.swing.JTextField fIdTextField;
     private javax.swing.JTextField fordonsBeskrivningTextField;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.components.JSpinField jSpinField1;
-    private com.toedter.calendar.JYearChooser jYearChooser1;
     private javax.swing.JButton nyttFordonBTN;
     private javax.swing.JLabel regDateLBL;
     private com.github.lgooddatepicker.components.DatePicker regDatePicker;
     private javax.swing.JLabel regNrLBL;
     private javax.swing.JLabel årsModellLBL;
+    private com.toedter.calendar.JYearChooser årsmodellYearChooser;
     // End of variables declaration//GEN-END:variables
 }

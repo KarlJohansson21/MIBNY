@@ -5,6 +5,7 @@
  */
 package mib1;
 
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -47,7 +48,7 @@ public class AdminFonster extends javax.swing.JFrame {
         changeLösenBTN = new javax.swing.JButton();
         removeFordonBTN = new javax.swing.JButton();
         registerFordonBTN = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        lånaUtrustningBTN = new javax.swing.JButton();
         lånaFordonBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -164,10 +165,10 @@ public class AdminFonster extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Låna Utrustning");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        lånaUtrustningBTN.setText("Låna Utrustning");
+        lånaUtrustningBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                lånaUtrustningBTNActionPerformed(evt);
             }
         });
 
@@ -193,7 +194,7 @@ public class AdminFonster extends javax.swing.JFrame {
                             .addComponent(registerFordonBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+                            .addComponent(lånaUtrustningBTN, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
                             .addComponent(redigeraAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(redigeraAgent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lånaFordonBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -232,7 +233,7 @@ public class AdminFonster extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(registerUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lånaUtrustningBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(removeUtrustningBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -352,9 +353,40 @@ public class AdminFonster extends javax.swing.JFrame {
 
     private void redigeraAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redigeraAgentActionPerformed
         // TODO add your handling code here:
+       
+        int inmatning = JOptionPane.showConfirmDialog(null, "Den här funktionen kan bara uppdatera en agents namn, telefon och område. Är det vad du vill?", "Uppdatera agent", JOptionPane.YES_NO_OPTION);
+        if(inmatning == 0){
         uppdateraAgent update = new uppdateraAgent(idb);
         update.setVisible(true);
         this.dispose();
+        }
+       /* else if (inmatning == 1){
+            int inmatning2 = JOptionPane.showConfirmDialog(null, "Vill du uppdatera en agent till områdeschef? ", "Uppdatera agent", JOptionPane.YES_NO_OPTION);
+            if(inmatning2 == 0){
+                nyOmrådeschef update = new nyOmrådeschef(idb);
+                update.setVisible(true);
+                this.dispose();
+            
+        }
+            else if(inmatning2 == 1){
+                int inmatning3 = JOptionPane.showConfirmDialog(null, "Vill du uppdatera en agent till kontorschef? ", "Uppdatera agent", JOptionPane.YES_NO_OPTION);
+                if(inmatning3 == 0){
+                    nyKontorschef update = new nyKontorschef(idb);
+                    update.setVisible(true);
+                    this.dispose();
+                }
+                else if(inmatning3 == 1){
+                     int inmatning4 = JOptionPane.showConfirmDialog(null, "Vill du uppdatera en agent till adminstratör? ", "Uppdatera agent", JOptionPane.YES_NO_CANCEL_OPTION);
+                     if(inmatning4 == 0 ){
+                         görAdmin update = new görAdmin(idb);
+                         update.setVisible(true);
+                         this.dispose();
+                     }
+                }
+            }
+        }
+        */
+        
     }//GEN-LAST:event_redigeraAgentActionPerformed
 
     private void registerFordonBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerFordonBTNActionPerformed
@@ -378,56 +410,26 @@ public class AdminFonster extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_lånaFordonBTNActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void lånaUtrustningBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lånaUtrustningBTNActionPerformed
         // TODO add your handling code here:
         lånaUtrustning låna = new lånaUtrustning(idb);
         låna.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_lånaUtrustningBTNActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminFonster.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminFonster.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminFonster.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminFonster.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AdminFonster(idb).setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton changeKontorsChefBTN;
     private javax.swing.JButton changeLösenBTN;
     private javax.swing.JButton changeOmrådesChefBTN;
     private javax.swing.JButton görAdminBTN;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton logoutBTN;
     private javax.swing.JButton lånaFordonBTN;
+    private javax.swing.JButton lånaUtrustningBTN;
     private javax.swing.JButton redigeraAgent;
     private javax.swing.JButton redigeraAlien;
     private javax.swing.JButton registerFordonBTN;

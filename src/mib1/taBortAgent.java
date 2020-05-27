@@ -213,35 +213,35 @@ private static InfDB idb;
             try{
                 String agentId = idb.fetchSingle("Select agent_id from agent where namn = " + "'" + valdAgent + "'");
                 idTextField.setText(agentId);
-                int AgentId = Integer.parseInt(agentId);
+                int convertId = Integer.parseInt(agentId);
                 
-                String agentNamn = idb.fetchSingle("Select namn from agent where agent_id = " + "'" +AgentId +"'");
+                String agentNamn = idb.fetchSingle("Select namn from agent where agent_id = " + "'" +convertId +"'");
                 NamnTextField.setText(agentNamn);
                 
-                String tfn = idb.fetchSingle("Select telefon from agent where agent_id = " +"'" +AgentId +"'");
+                String tfn = idb.fetchSingle("Select telefon from agent where agent_id = " +"'" +convertId +"'");
                 telefonTextField.setText(tfn);
                 
-                String doe = idb.fetchSingle("Select anstallningsdatum from agent where agent_id = " +"'" + AgentId + "'");
+                String doe = idb.fetchSingle("Select anstallningsdatum from agent where agent_id = " +"'" + convertId + "'");
                 doeTextField.setText(doe);
                 
-                String plats = idb.fetchSingle("Select benamning from omrade join agent on agent.omrade = omrade.omrades_id where agent_id = " +"'" + AgentId +"'");
+                String plats = idb.fetchSingle("Select benamning from omrade join agent on agent.omrade = omrade.omrades_id where agent_id = " +"'" + convertId +"'");
                 areaCombo.getModel().setSelectedItem(plats);
                 
                 String isKontorChef = idb.fetchSingle("Select Agent_id from kontorschef");
                 int sant = Integer.parseInt(isKontorChef);
-                String isOmradeChef = idb.fetchSingle("Select agent_id from omradeschef where agent_id = " + "'" + AgentId + "'");
+                String isOmradeChef = idb.fetchSingle("Select agent_id from omradeschef where agent_id = " + "'" + convertId + "'");
                 int sant2 = Integer.parseInt(isOmradeChef);
-                if(sant == AgentId){
+                if(sant == convertId){
                     typCombo.getModel().setSelectedItem("Kontorschef");
                 }
-                else if(sant2 == AgentId){
+                else if(sant2 == convertId){
                     typCombo.getModel().setSelectedItem("Områdeschef");
                 }
                 else{
                     typCombo.getModel().setSelectedItem("Fältagent");
                 }
               
-                String admin = idb.fetchSingle("Select administrator from agent where agent_id = " + "'" + AgentId + "'");
+                String admin = idb.fetchSingle("Select administrator from agent where agent_id = " + "'" + convertId + "'");
                 if(admin.equals("J")){
                 adminCombo.getModel().setSelectedItem("Ja");
                 }
@@ -330,37 +330,7 @@ private static InfDB idb;
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(taBortAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(taBortAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(taBortAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(taBortAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new taBortAgent(idb).setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField NamnTextField;
