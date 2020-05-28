@@ -5,30 +5,29 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 import javax.swing.JOptionPane;
 import java.util.Date;
-import java.text.SimpleDateFormat;  
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-
 
 /**
  *
  * @author Jesper
  */
 public class agentAlien extends javax.swing.JFrame {
+
     private static InfDB idb;
- 
+
     /**
      * Creates new form agentAlien
      */
     public agentAlien(InfDB idb) {
         initComponents();
-         this.idb = idb;
+        this.idb = idb;
         lblRasSpec.setVisible(true);
         lblRasSpec.setText("Ange antal boogies:");
-        
-         
+
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -198,89 +197,93 @@ public class agentAlien extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBTNActionPerformed
- if (valideringsklass.longPassword(txtPassword)) {
-        
-         String  val = comboBoxRas.getSelectedItem().toString();
+        // Valideringsklass som kontrollerar att användaren matat in ett lösenord som är kortare än 6 tecken. 
+        if (valideringsklass.longPassword(txtPassword)) {
+            // Valideringsklass som kontrollerar att användaren matat in data i alla fält.
+            if (valideringsklass.tomtFalt(txtNamn) && valideringsklass.tomtFalt(txtPassword) && valideringsklass.tomtFalt(txtPhone) && valideringsklass.tomtFalt(txtDate) && valideringsklass.tomtFalt(txtRasSpec) && valideringsklass.tomtFalt(txtChef) && valideringsklass.tomtFalt(txtPlats)) {
+                //Valideringsklass som kontrollerar att användaren matat in data i comboboxen.
+                if (valideringsklass.tomCombo(comboBoxRas))
         try {
-            String name = txtNamn.getText();
-            String password = txtPassword.getText();
-            String phone = txtPhone.getText();
-            String date = txtDate.getText();
+                    //getText-metod som hämtar det användaren matat in i gränssnittet. 
+                    String name = txtNamn.getText();
+                    String password = txtPassword.getText();
+                    String phone = txtPhone.getText();
+                    String date = txtDate.getText();
+                    String RasSpec = txtRasSpec.getText();
 
-            // Konvertering från String till Integer.
-            //int alienID = Integer.parseInt(idVal.getText());
-            int chef = Integer.parseInt(txtChef.getText());
-            int plats = Integer.parseInt(txtPlats.getText());
+                    // Konvertering från String till Integer.
+                    int chef = Integer.parseInt(txtChef.getText());
+                    int plats = Integer.parseInt(txtPlats.getText());
 
-            //Konvertering från JavaDate till SQLdate.
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-            Date parsedate = format.parse(date);
-            java.sql.Date daydate = new java.sql.Date(parsedate.getTime());
+                    //Konvertering från JavaDate till SQLdate.
+                    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                    Date parsedate = format.parse(date);
+                    java.sql.Date daydate = new java.sql.Date(parsedate.getTime());
 
-            String RasSpec = txtRasSpec.getText();
-            
-            try {
+                    // Konvertering från ComboBox till String.
+                    String val = comboBoxRas.getSelectedItem().toString();
 
-                String add = idb.getAutoIncrement("Alien", "Alien_ID");
-                int convertID = Integer.parseInt(add);
+                    try {
+                        // AutoIncrement som gör att Alien-ID inkrementeras. 
+                        String add = idb.getAutoIncrement("Alien", "Alien_ID");
+                        int convertID = Integer.parseInt(add);
 
-                idb.insert("insert into ALIEN (ALIEN_ID, REGISTRERINGSDATUM, LOSENORD, NAMN, TELEFON, PLATS, ANSVARIG_AGENT)"
-                        + " values ('" + add + "','" + daydate + "','" + password + "','" + name + "','" + phone + "','" + plats + "','" + chef + "')");
+                        // SQL-frågan. 
+                        idb.insert("insert into ALIEN (ALIEN_ID, REGISTRERINGSDATUM, LOSENORD, NAMN, TELEFON, PLATS, ANSVARIG_AGENT)"
+                                + " values ('" + add + "','" + daydate + "','" + password + "','" + name + "','" + phone + "','" + plats + "','" + chef + "')");
 
-                JOptionPane.showMessageDialog(null, "En ny alien har registrerats med Alien-ID: " + add);
-               
-            
-            // Beroende på vad man valt i comboboxUtrustning läggs det till i rätt tabell
-            if(val.equals("Boglodite")){
-                idb.insert("Insert into BOGLODITE (ALIEN_ID, ANTAL_BOOGIES) values ('" + add+ "','" + RasSpec + "')");
-            }
-            else if(val.equals("Squid")){
-            idb.insert("Insert into SQUID (ALIEN_ID, ANTAL_ARMAR) values ('" + add + "','" + RasSpec + "')");
-        
-        }
-            else{
-                idb.insert("Insert into WORM (ALIEN_ID) values ('" + add + "')");
+                        // Messagedialog som meddelar användaren om att en ny alien har registrerats. 
+                        JOptionPane.showMessageDialog(null, "En ny alien har registrerats med Alien-ID: " + add);
+
+                        // Beroende på vad man valt i comboboxUtrustning läggs det till i rätt tabell
+                        if (val.equals("Boglodite")) {
+                            idb.insert("Insert into BOGLODITE (ALIEN_ID, ANTAL_BOOGIES) values ('" + add + "','" + RasSpec + "')");
+                        } else if (val.equals("Squid")) {
+                            idb.insert("Insert into SQUID (ALIEN_ID, ANTAL_ARMAR) values ('" + add + "','" + RasSpec + "')");
+
+                        } else {
+                            idb.insert("Insert into WORM (ALIEN_ID) values ('" + add + "')");
+                        }
+
+                    } catch (InfException e) {
+                        JOptionPane.showMessageDialog(null, "Något gick fel, försök igen");
+                        System.out.println(e.getMessage());
+
                     }
-       
-            } catch (InfException e) {
-                JOptionPane.showMessageDialog(null, "Något gick fel, försök igen");
-                System.out.println(e.getMessage());
 
+                } catch (ParseException ex) {
+                    Logger.getLogger(agentAlien.class.getName()).log(Level.SEVERE, null, ex);
+
+                }
             }
-
-        } catch (ParseException ex) {
-            Logger.getLogger(agentAlien.class.getName()).log(Level.SEVERE, null, ex);
-
-        }   }
+        }
     }//GEN-LAST:event_saveBTNActionPerformed
 
     private void tbxBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxBTNActionPerformed
         // TODO add your handling code here:
-          String test = huvudFonster.hamtaAnvandare();
+        String test = huvudFonster.hamtaAnvandare();
         //om agenten är admin så kommer man till adminsidan via knappen annars så kommer man till vanliga agentsidan
-        try{
+        try {
             //String namn = idb.fetchSingle("Select namn from agent where namn = " + "'" + test + "'");
             // Här hämtar den id på den inloggade agenten
             String id = idb.fetchSingle("Select agent_id from agent where namn = " + "'" + test + "'");
             // Konverterar till int
             int convertId = Integer.parseInt(id);
             //If agenten är admin 
-            String om = idb.fetchSingle("select agent.ADMINISTRATOR from agent where agent_id = " + "'" + convertId +"'");
+            String om = idb.fetchSingle("select agent.ADMINISTRATOR from agent where agent_id = " + "'" + convertId + "'");
             //Om villkorret uppfylls(en agent är admin om det står J i administrator kolumnen)
-            if(om.equals("J")){
+            if (om.equals("J")) {
                 AdminFonster tbxAdmin = new AdminFonster(idb);
                 tbxAdmin.setVisible(true);
                 this.dispose();
-            }
-            // Annars är det vanliga agentsidan man kommer till
-            else{
+            } // Annars är det vanliga agentsidan man kommer till
+            else {
                 AgentInloggad tbx = new AgentInloggad(idb);
                 tbx.setVisible(true);
                 this.dispose();
-                 
+
             }
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Något gick fel");
             System.out.println(e.getMessage());
         }
@@ -288,27 +291,23 @@ public class agentAlien extends javax.swing.JFrame {
 
     private void comboBoxRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxRasActionPerformed
         // TODO add your handling code here:
-  String  val= comboBoxRas.getSelectedItem().toString();
-          String fråga = txtRasSpec.getText();
-         if(val.equals("Squid")){
+        String val = comboBoxRas.getSelectedItem().toString();
+        String fråga = txtRasSpec.getText();
+        if (val.equals("Squid")) {
             lblRasSpec.setVisible(true);
             lblRasSpec.setText("Ange antal armar:");
             txtRasSpec.setVisible(true);
-            }
-        else if(val.equals("Boglodite")){
+        } else if (val.equals("Boglodite")) {
             lblRasSpec.setVisible(true);
             lblRasSpec.setText("Ange antal boogies:");
-             txtRasSpec.setVisible(true);
-        }
-          else{
+            txtRasSpec.setVisible(true);
+        } else {
             lblRasSpec.setVisible(false);
             lblRasSpec.setText("-");
             txtRasSpec.setVisible(false);
-        }                             
+        }
     }//GEN-LAST:event_comboBoxRasActionPerformed
 
-   
-        
     /**
      * @param args the command line arguments
      */
@@ -340,7 +339,7 @@ public class agentAlien extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
+
             }
         });
     }
