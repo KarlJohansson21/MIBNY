@@ -23,56 +23,66 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtDate" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtID" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtPassword" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="dateLBL" alignment="0" max="32767" attributes="0"/>
-                              <Component id="idLBL" alignment="0" max="32767" attributes="0"/>
-                              <Component id="passwordLBL" alignment="0" max="32767" attributes="0"/>
+                              <Component id="lblDate" alignment="0" pref="140" max="32767" attributes="0"/>
+                              <Component id="lblPassword" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblDate3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblID2" alignment="0" max="32767" attributes="0"/>
+                              <Component id="lblPassword2" alignment="0" max="32767" attributes="0"/>
+                              <Component id="lblDate2" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="txtRas" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="rasLBL" alignment="0" min="-2" pref="87" max="-2" attributes="0"/>
+                          <Component id="lblRas" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblRas2" alignment="0" min="-2" pref="87" max="-2" attributes="0"/>
+                          <Component id="lblID" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="txtChef" max="32767" attributes="0"/>
+                              <Component id="lblChef" max="32767" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
-                          <Component id="txtPlats" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="RasSpecLBL" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="platsLBL" max="32767" attributes="0"/>
+                              <Component id="lblPlats2" max="32767" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
-                          <Component id="phoneLBL" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
-                          <Component id="specialVärdeLBL" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="chefLBL" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtPhone" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblChef3" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="lblPhone" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblPlats" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblRasSpec" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblPhone2" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
+                                  <Component id="lblRasSpec2" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
+                                  <Component id="lblChef2" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="txtHead" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblAlienHead" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="incomingID" min="-2" pref="36" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="txtNamn" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNamn" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="inputNamn" min="-2" pref="81" max="-2" attributes="0"/>
+                              <Component id="txtNamn" min="-2" pref="81" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="okBTN" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -82,8 +92,8 @@
               </Group>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
+              <Component id="tbxBTN" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -93,68 +103,77 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="txtHead" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblAlienHead" alignment="0" max="32767" attributes="0"/>
                   <Component id="incomingID" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblNamn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtNamn" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="inputNamn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="okBTN" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="txtDate" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="lblDate" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                      <Component id="lblDate3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="dateLBL" min="-2" pref="31" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtID" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="idLBL" min="-2" pref="25" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtPassword" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="passwordLBL" max="32767" attributes="0"/>
+                      <Component id="lblDate2" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="lblChef" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblChef3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblChef2" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="txtChef" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="chefLBL" min="-2" pref="15" max="-2" attributes="0"/>
+                      <Component id="lblID" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblID2" min="-2" pref="25" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblPassword" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblPassword2" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                      <Component id="lblPlats" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblPlats2" min="-2" pref="17" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="txtPlats" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblPhone" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="platsLBL" min="-2" pref="17" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="txtPhone" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="phoneLBL" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="lblPhone2" min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="txtRas" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblRas" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="rasLBL" min="-2" pref="14" max="-2" attributes="0"/>
+                      <Component id="lblRas2" min="-2" pref="14" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="RasSpecLBL" min="-2" pref="16" max="-2" attributes="0"/>
+                      <Component id="lblRasSpec" min="-2" pref="16" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="specialVärdeLBL" min="-2" pref="14" max="-2" attributes="0"/>
+                      <Component id="lblRasSpec2" min="-2" pref="14" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="14" max="32767" attributes="0"/>
+              <EmptySpace pref="12" max="32767" attributes="0"/>
+              <Component id="tbxBTN" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="inputNamn">
+    <Component class="javax.swing.JTextField" name="txtNamn">
     </Component>
-    <Component class="javax.swing.JLabel" name="dateLBL">
+    <Component class="javax.swing.JLabel" name="lblDate2">
     </Component>
     <Component class="javax.swing.JButton" name="okBTN">
       <Properties>
@@ -164,79 +183,89 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="okBTNActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="txtHead">
+    <Component class="javax.swing.JLabel" name="lblAlienHead">
       <Properties>
         <Property name="text" type="java.lang.String" value="S&#xf6;k efter Alien:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="chefLBL">
+    <Component class="javax.swing.JLabel" name="lblChef2">
     </Component>
     <Component class="javax.swing.JLabel" name="incomingID">
     </Component>
-    <Component class="javax.swing.JLabel" name="idLBL">
+    <Component class="javax.swing.JLabel" name="lblID2">
     </Component>
-    <Component class="javax.swing.JLabel" name="txtDate">
+    <Component class="javax.swing.JLabel" name="lblDate">
       <Properties>
         <Property name="text" type="java.lang.String" value="Registreringsdatum:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="platsLBL">
+    <Component class="javax.swing.JLabel" name="lblPlats2">
     </Component>
-    <Component class="javax.swing.JLabel" name="txtChef">
+    <Component class="javax.swing.JLabel" name="lblChef">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ansvarig Agent:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="passwordLBL">
+    <Component class="javax.swing.JLabel" name="lblPassword2">
     </Component>
-    <Component class="javax.swing.JLabel" name="txtID">
+    <Component class="javax.swing.JLabel" name="lblID">
       <Properties>
         <Property name="text" type="java.lang.String" value="Alien-ID:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="phoneLBL">
+    <Component class="javax.swing.JLabel" name="lblPhone2">
     </Component>
-    <Component class="javax.swing.JLabel" name="txtPlats">
+    <Component class="javax.swing.JLabel" name="lblPlats">
       <Properties>
         <Property name="text" type="java.lang.String" value="Plats:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="rasLBL">
+    <Component class="javax.swing.JLabel" name="lblRas2">
     </Component>
-    <Component class="javax.swing.JLabel" name="txtPassword">
+    <Component class="javax.swing.JLabel" name="lblPassword">
       <Properties>
         <Property name="text" type="java.lang.String" value="L&#xf6;senord:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="specialV&#xe4;rdeLBL">
+    <Component class="javax.swing.JLabel" name="lblRasSpec2">
     </Component>
-    <Component class="javax.swing.JLabel" name="txtPhone">
+    <Component class="javax.swing.JLabel" name="lblPhone">
       <Properties>
         <Property name="text" type="java.lang.String" value="Telefonnummer:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="txtRas">
+    <Component class="javax.swing.JLabel" name="lblRas">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ras:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="txtNamn">
+    <Component class="javax.swing.JLabel" name="lblNamn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ange namn p&#xe5; Alien:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="RasSpecLBL">
+    <Component class="javax.swing.JLabel" name="lblRasSpec">
       <Properties>
         <Property name="text" type="java.lang.String" value="RasSpec:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="tbxBTN">
       <Properties>
         <Property name="text" type="java.lang.String" value="Tillbaka"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tbxBTNActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblDate3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="(YYYY-MM-DD)"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblChef3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="(ID)"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

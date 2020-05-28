@@ -40,9 +40,10 @@ public class AgentInloggad extends javax.swing.JFrame {
         bytlösen = new javax.swing.JButton();
         utrustningBTN = new javax.swing.JButton();
         områdeschefBTN = new javax.swing.JButton();
-        registerAlienBTN = new javax.swing.JButton();
-        updAlienBTN = new javax.swing.JButton();
-        sokAlienBTN = new javax.swing.JButton();
+        läggTillAlienBTN = new javax.swing.JButton();
+        uppdateraAlienBTN = new javax.swing.JButton();
+        sökAlienBTN = new javax.swing.JButton();
+        datumAlienBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,24 +77,31 @@ public class AgentInloggad extends javax.swing.JFrame {
             }
         });
 
-        registerAlienBTN.setText("Registrera Alien");
-        registerAlienBTN.addActionListener(new java.awt.event.ActionListener() {
+        läggTillAlienBTN.setText("Lägg till Alien");
+        läggTillAlienBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerAlienBTNActionPerformed(evt);
+                läggTillAlienBTNActionPerformed(evt);
             }
         });
 
-        updAlienBTN.setText("Uppdatera Alien");
-        updAlienBTN.addActionListener(new java.awt.event.ActionListener() {
+        uppdateraAlienBTN.setText("Uppdatera Alien");
+        uppdateraAlienBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updAlienBTNActionPerformed(evt);
+                uppdateraAlienBTNActionPerformed(evt);
             }
         });
 
-        sokAlienBTN.setText("Sök Alien");
-        sokAlienBTN.addActionListener(new java.awt.event.ActionListener() {
+        sökAlienBTN.setText("Sök Alien");
+        sökAlienBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sokAlienBTNActionPerformed(evt);
+                sökAlienBTNActionPerformed(evt);
+            }
+        });
+
+        datumAlienBTN.setText("Intervallsök Alien");
+        datumAlienBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                datumAlienBTNActionPerformed(evt);
             }
         });
 
@@ -102,39 +110,45 @@ public class AgentInloggad extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(127, 127, 127)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(registerAlienBTN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(sokAlienBTN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(updAlienBTN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(utrustningBTN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                        .addComponent(logoutBTN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(områdeschefBTN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bytlösen, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(137, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(127, 127, 127)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(bytlösen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(logoutBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(utrustningBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(områdeschefBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(läggTillAlienBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(uppdateraAlienBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(sökAlienBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(datumAlienBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(119, 119, 119)
+                        .addComponent(jLabel1)))
+                .addGap(100, 125, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(registerAlienBTN)
+                .addGap(21, 21, 21)
+                .addComponent(datumAlienBTN)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sokAlienBTN)
+                .addComponent(bytlösen, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(updAlienBTN)
+                .addComponent(utrustningBTN)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(områdeschefBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(läggTillAlienBTN)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(uppdateraAlienBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(utrustningBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bytlösen, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(områdeschefBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sökAlienBTN)
+                .addGap(18, 18, 18)
                 .addComponent(logoutBTN)
-                .addGap(59, 59, 59))
+                .addContainerGap())
         );
 
         pack();
@@ -168,26 +182,29 @@ public class AgentInloggad extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_områdeschefBTNActionPerformed
 
-    private void registerAlienBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerAlienBTNActionPerformed
-        // TODO add your handling code here:
-        agentAlien nyAlien = new agentAlien(idb);
-        nyAlien.setVisible(true);
+    private void läggTillAlienBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_läggTillAlienBTNActionPerformed
+        agentAlien läggTillAlien = new agentAlien(idb);
+        läggTillAlien.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_registerAlienBTNActionPerformed
+    }//GEN-LAST:event_läggTillAlienBTNActionPerformed
 
-    private void updAlienBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updAlienBTNActionPerformed
-        // TODO add your handling code here:
-        AgentUppdateraAlienA  uppdatera = new AgentUppdateraAlienA(idb); 
-        uppdatera.setVisible(true);
+    private void uppdateraAlienBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uppdateraAlienBTNActionPerformed
+        AgentUppdateraAlienA uppdateraAlien = new  AgentUppdateraAlienA(idb);
+       uppdateraAlien.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_updAlienBTNActionPerformed
+    }//GEN-LAST:event_uppdateraAlienBTNActionPerformed
 
-    private void sokAlienBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sokAlienBTNActionPerformed
-        // TODO add your handling code here:
-        AgentSökAlien sokAlien = new AgentSökAlien(idb);
-        sokAlien.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_sokAlienBTNActionPerformed
+    private void sökAlienBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sökAlienBTNActionPerformed
+      AgentSökAlien sökAlien = new AgentSökAlien(idb);
+       sökAlien.setVisible(true);
+      this.dispose();
+    }//GEN-LAST:event_sökAlienBTNActionPerformed
+
+    private void datumAlienBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_datumAlienBTNActionPerformed
+       AgentDatum alienDatum = new AgentDatum(idb);
+       alienDatum.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_datumAlienBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,6 +232,7 @@ public class AgentInloggad extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(AgentInloggad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -226,12 +244,13 @@ public class AgentInloggad extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bytlösen;
+    private javax.swing.JButton datumAlienBTN;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton logoutBTN;
+    private javax.swing.JButton läggTillAlienBTN;
     private javax.swing.JButton områdeschefBTN;
-    private javax.swing.JButton registerAlienBTN;
-    private javax.swing.JButton sokAlienBTN;
-    private javax.swing.JButton updAlienBTN;
+    private javax.swing.JButton sökAlienBTN;
+    private javax.swing.JButton uppdateraAlienBTN;
     private javax.swing.JButton utrustningBTN;
     // End of variables declaration//GEN-END:variables
 }

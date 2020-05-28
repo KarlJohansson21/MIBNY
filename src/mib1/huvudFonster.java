@@ -30,7 +30,9 @@ public class huvudFonster extends javax.swing.JFrame {
         initComponents();
         inloggad = false;
         try{
+
         idb = new InfDB("/Users/db/mibdb.fdb");    
+
         this.idb = idb;
         
         }
@@ -207,7 +209,7 @@ public class huvudFonster extends javax.swing.JFrame {
                     
 
                 }
-                //Om användaren skriver in korrekta uppgifter så blir de vidareskickade till AgentInloggad fönstret
+                //Om användaren skriver in korrekta uppgifter så blir de vidareskickade till AgentInloggad1 fönstret
                 else if(user.equals(Username) && pass.equals(password1)){
                     anvandare = Username;
                     inloggad = true;

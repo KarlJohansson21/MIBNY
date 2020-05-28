@@ -20,8 +20,8 @@ public class AgentSökAlien extends javax.swing.JFrame {
     public AgentSökAlien(InfDB idb) {
         initComponents();
         this.idb = idb;
-        specialVärdeLBL.setVisible(false);
-        RasSpecLBL.setVisible(false);
+        lblRasSpec2.setVisible(false);
+        lblRasSpec.setVisible(false);
     }
 
     /**
@@ -33,28 +33,30 @@ public class AgentSökAlien extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        inputNamn = new javax.swing.JTextField();
-        dateLBL = new javax.swing.JLabel();
+        txtNamn = new javax.swing.JTextField();
+        lblDate2 = new javax.swing.JLabel();
         okBTN = new javax.swing.JButton();
-        txtHead = new javax.swing.JLabel();
-        chefLBL = new javax.swing.JLabel();
+        lblAlienHead = new javax.swing.JLabel();
+        lblChef2 = new javax.swing.JLabel();
         incomingID = new javax.swing.JLabel();
-        idLBL = new javax.swing.JLabel();
-        txtDate = new javax.swing.JLabel();
-        platsLBL = new javax.swing.JLabel();
-        txtChef = new javax.swing.JLabel();
-        passwordLBL = new javax.swing.JLabel();
-        txtID = new javax.swing.JLabel();
-        phoneLBL = new javax.swing.JLabel();
-        txtPlats = new javax.swing.JLabel();
-        rasLBL = new javax.swing.JLabel();
-        txtPassword = new javax.swing.JLabel();
-        specialVärdeLBL = new javax.swing.JLabel();
-        txtPhone = new javax.swing.JLabel();
-        txtRas = new javax.swing.JLabel();
-        txtNamn = new javax.swing.JLabel();
-        RasSpecLBL = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        lblID2 = new javax.swing.JLabel();
+        lblDate = new javax.swing.JLabel();
+        lblPlats2 = new javax.swing.JLabel();
+        lblChef = new javax.swing.JLabel();
+        lblPassword2 = new javax.swing.JLabel();
+        lblID = new javax.swing.JLabel();
+        lblPhone2 = new javax.swing.JLabel();
+        lblPlats = new javax.swing.JLabel();
+        lblRas2 = new javax.swing.JLabel();
+        lblPassword = new javax.swing.JLabel();
+        lblRasSpec2 = new javax.swing.JLabel();
+        lblPhone = new javax.swing.JLabel();
+        lblRas = new javax.swing.JLabel();
+        lblNamn = new javax.swing.JLabel();
+        lblRasSpec = new javax.swing.JLabel();
+        tbxBTN = new javax.swing.JButton();
+        lblDate3 = new javax.swing.JLabel();
+        lblChef3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,32 +67,36 @@ public class AgentSökAlien extends javax.swing.JFrame {
             }
         });
 
-        txtHead.setText("Sök efter Alien:");
+        lblAlienHead.setText("Sök efter Alien:");
 
-        txtDate.setText("Registreringsdatum:");
+        lblDate.setText("Registreringsdatum:");
 
-        txtChef.setText("Ansvarig Agent:");
+        lblChef.setText("Ansvarig Agent:");
 
-        txtID.setText("Alien-ID:");
+        lblID.setText("Alien-ID:");
 
-        txtPlats.setText("Plats:");
+        lblPlats.setText("Plats:");
 
-        txtPassword.setText("Lösenord:");
+        lblPassword.setText("Lösenord:");
 
-        txtPhone.setText("Telefonnummer:");
+        lblPhone.setText("Telefonnummer:");
 
-        txtRas.setText("Ras:");
+        lblRas.setText("Ras:");
 
-        txtNamn.setText("Ange namn på Alien:");
+        lblNamn.setText("Ange namn på Alien:");
 
-        RasSpecLBL.setText("RasSpec:");
+        lblRasSpec.setText("RasSpec:");
 
-        jButton1.setText("Tillbaka");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        tbxBTN.setText("Tillbaka");
+        tbxBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                tbxBTNActionPerformed(evt);
             }
         });
+
+        lblDate3.setText("(YYYY-MM-DD)");
+
+        lblChef3.setText("(ID)");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,47 +108,54 @@ public class AgentSökAlien extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtID)
-                                .addComponent(txtPassword)
-                                .addComponent(dateLBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(idLBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(passwordLBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(txtRas)
-                            .addComponent(rasLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblDate, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                                .addComponent(lblPassword)
+                                .addComponent(lblDate3)
+                                .addComponent(lblID2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblPassword2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblDate2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblRas)
+                            .addComponent(lblRas2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblID))
                         .addGap(88, 88, 88)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtChef, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblChef, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(txtPlats)
-                            .addComponent(RasSpecLBL)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(platsLBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblPlats2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(phoneLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(specialVärdeLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(chefLBL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtPhone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(127, 127, 127))))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(lblChef3)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(lblPhone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(127, 127, 127))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblPlats)
+                                    .addComponent(lblRasSpec)
+                                    .addComponent(lblPhone2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblRasSpec2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblChef2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap())))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtHead)
+                                .addComponent(lblAlienHead)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(incomingID, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtNamn)
+                                .addComponent(lblNamn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(inputNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(okBTN)))
                         .addContainerGap())))
             .addGroup(layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(jButton1)
+                .addGap(170, 170, 170)
+                .addComponent(tbxBTN)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -150,52 +163,58 @@ public class AgentSökAlien extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtHead, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblAlienHead, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(incomingID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNamn)
-                    .addComponent(inputNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNamn)
+                    .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(okBTN))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtDate)
+                        .addComponent(lblDate)
+                        .addGap(6, 6, 6)
+                        .addComponent(lblDate3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dateLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtID)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(idLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPassword)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(passwordLBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lblDate2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtChef)
+                        .addComponent(lblChef)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chefLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblChef3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblChef2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblID)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblID2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblPassword)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblPassword2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, 0)
+                        .addComponent(lblPlats)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblPlats2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txtPlats)
+                        .addComponent(lblPhone)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(platsLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtPhone)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(phoneLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblPhone2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtRas)
+                        .addComponent(lblRas)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rasLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblRas2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(RasSpecLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblRasSpec, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(specialVärdeLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addContainerGap(14, Short.MAX_VALUE))
+                        .addComponent(lblRasSpec2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(tbxBTN))
         );
 
         pack();
@@ -203,9 +222,9 @@ public class AgentSökAlien extends javax.swing.JFrame {
 
     private void okBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okBTNActionPerformed
          // Validering som kontrollerar att fältet inte är tomt.
-        if (valideringsklass.tomtFalt(inputNamn)) {
+        if (valideringsklass.tomtFalt(txtNamn)) {
             try {
-                String Namn = inputNamn.getText();
+                String Namn = txtNamn.getText();
               //  int ID = Integer.parseInt(inputID.getText());
               
               
@@ -217,47 +236,47 @@ public class AgentSökAlien extends javax.swing.JFrame {
                 String Plats = idb.fetchSingle("SELECT PLATS from Alien where NAMN=" + "'" + Namn+"'");
 
                 // Sätter datan som hämtats 
-                dateLBL.setText(Date);
-                chefLBL.setText(Chef);
-               idLBL.setText(ID);
-                platsLBL.setText(Plats);
-                phoneLBL.setText(Phone);
-                passwordLBL.setText(Password);
+                lblDate2.setText(Date);
+                lblChef2.setText(Chef);
+               lblID2.setText(ID);
+                lblPlats2.setText(Plats);
+                lblPhone2.setText(Phone);
+                lblPassword2.setText(Password);
 
                 String ras;
                 String antalBoogies = idb.fetchSingle("SELECT ANTAL_BOOGIES from BOGLODITE where ALIEN_ID=" + ID);
                 String antalArmar = idb.fetchSingle("SELECT ANTAL_ARMAR from SQUID where ALIEN_ID=" + ID);
 
                 if (antalBoogies != null) {
-                    specialVärdeLBL.setVisible(true);
-                    RasSpecLBL.setVisible(true);
+                    lblRasSpec2.setVisible(true);
+                    lblRasSpec.setVisible(true);
                     ras = "Boglodite";
-                    RasSpecLBL.setText("Antal boogies:");
-                    specialVärdeLBL.setText(antalBoogies);
+                    lblRasSpec.setText("Antal boogies:");
+                    lblRasSpec2.setText(antalBoogies);
                 } else if (antalArmar != null) {
-                    specialVärdeLBL.setVisible(true);
-                    RasSpecLBL.setVisible(true);
+                    lblRasSpec2.setVisible(true);
+                    lblRasSpec.setVisible(true);
                     ras = "Squid";
-                    RasSpecLBL.setText("Antal armar:");
-                    specialVärdeLBL.setText(antalArmar);
+                    lblRasSpec.setText("Antal armar:");
+                    lblRasSpec2.setText(antalArmar);
                 } else {
                     ras = "Worm";
-                    specialVärdeLBL.setVisible(false);
-                    RasSpecLBL.setVisible(false);
+                    lblRasSpec2.setVisible(false);
+                    lblRasSpec.setVisible(false);
                 }
-                rasLBL.setText(ras);
+                lblRas2.setText(ras);
 
             } catch (InfException ex) {
                 Logger.getLogger(AgentSökAlien.class.getName()).log(Level.SEVERE, null, ex);
             }
     }//GEN-LAST:event_okBTNActionPerformed
 } 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void tbxBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxBTNActionPerformed
         // TODO add your handling code here:
           AgentInloggad tbx = new AgentInloggad(idb);
         tbx.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_tbxBTNActionPerformed
     
     /**
      * @param args the command line arguments
@@ -298,27 +317,29 @@ public class AgentSökAlien extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel RasSpecLBL;
-    private javax.swing.JLabel chefLBL;
-    private javax.swing.JLabel dateLBL;
-    private javax.swing.JLabel idLBL;
     private javax.swing.JLabel incomingID;
-    private javax.swing.JTextField inputNamn;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel lblAlienHead;
+    private javax.swing.JLabel lblChef;
+    private javax.swing.JLabel lblChef2;
+    private javax.swing.JLabel lblChef3;
+    private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblDate2;
+    private javax.swing.JLabel lblDate3;
+    private javax.swing.JLabel lblID;
+    private javax.swing.JLabel lblID2;
+    private javax.swing.JLabel lblNamn;
+    private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblPassword2;
+    private javax.swing.JLabel lblPhone;
+    private javax.swing.JLabel lblPhone2;
+    private javax.swing.JLabel lblPlats;
+    private javax.swing.JLabel lblPlats2;
+    private javax.swing.JLabel lblRas;
+    private javax.swing.JLabel lblRas2;
+    private javax.swing.JLabel lblRasSpec;
+    private javax.swing.JLabel lblRasSpec2;
     private javax.swing.JButton okBTN;
-    private javax.swing.JLabel passwordLBL;
-    private javax.swing.JLabel phoneLBL;
-    private javax.swing.JLabel platsLBL;
-    private javax.swing.JLabel rasLBL;
-    private javax.swing.JLabel specialVärdeLBL;
-    private javax.swing.JLabel txtChef;
-    private javax.swing.JLabel txtDate;
-    private javax.swing.JLabel txtHead;
-    private javax.swing.JLabel txtID;
-    private javax.swing.JLabel txtNamn;
-    private javax.swing.JLabel txtPassword;
-    private javax.swing.JLabel txtPhone;
-    private javax.swing.JLabel txtPlats;
-    private javax.swing.JLabel txtRas;
+    private javax.swing.JButton tbxBTN;
+    private javax.swing.JTextField txtNamn;
     // End of variables declaration//GEN-END:variables
 }

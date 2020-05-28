@@ -50,7 +50,7 @@
                   <EmptySpace min="-2" pref="197" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="tbxBTN" max="32767" attributes="0"/>
-                      <Component id="comboChef" alignment="0" pref="110" max="32767" attributes="0"/>
+                      <Component id="comboChef" alignment="0" max="32767" attributes="0"/>
                       <Component id="områdeschefLBL" alignment="0" max="32767" attributes="0"/>
                       <Component id="väljområdeLBL" max="32767" attributes="0"/>
                   </Group>

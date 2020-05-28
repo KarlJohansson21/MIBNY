@@ -12,7 +12,8 @@ import oru.inf.InfDB;
  * @author Jesper
  */
 public class AgentUppdateraAlienA extends javax.swing.JFrame {
-private static InfDB idb;
+
+    private static InfDB idb;
 
     static String getAlienNamn1() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -23,9 +24,9 @@ private static InfDB idb;
      */
     public AgentUppdateraAlienA(InfDB idb) {
         initComponents();
-           this.idb = idb;
+        this.idb = idb;
     }
-      
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,21 +36,21 @@ private static InfDB idb;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtUpAlien = new javax.swing.JLabel();
-        txtAlien = new javax.swing.JLabel();
-        inputNamn = new javax.swing.JTextField();
+        lblUpdAlien = new javax.swing.JLabel();
+        lblAlien = new javax.swing.JLabel();
+        txtNamn = new javax.swing.JTextField();
         okBTN = new javax.swing.JButton();
         tbxBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        txtUpAlien.setText("Uppdatera Alien");
+        lblUpdAlien.setText("Uppdatera Alien");
 
-        txtAlien.setText("Vilket namn har alien du vill uppdatera?");
+        lblAlien.setText("Vilket namn har alien du vill uppdatera?");
 
-        inputNamn.addActionListener(new java.awt.event.ActionListener() {
+        txtNamn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputNamnActionPerformed(evt);
+                txtNamnActionPerformed(evt);
             }
         });
 
@@ -76,10 +77,10 @@ private static InfDB idb;
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtUpAlien)
-                            .addComponent(txtAlien)
+                            .addComponent(lblUpdAlien)
+                            .addComponent(lblAlien)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(inputNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(okBTN))))
                     .addGroup(layout.createSequentialGroup()
@@ -91,12 +92,12 @@ private static InfDB idb;
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtUpAlien)
+                .addComponent(lblUpdAlien)
                 .addGap(48, 48, 48)
-                .addComponent(txtAlien)
+                .addComponent(lblAlien)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inputNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(okBTN))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
                 .addComponent(tbxBTN)
@@ -106,15 +107,16 @@ private static InfDB idb;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void inputNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNamnActionPerformed
-    // TODO add your handling code here:
-    }//GEN-LAST:event_inputNamnActionPerformed
+    private void txtNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNamnActionPerformed
 
     // Metod för att instansiera AgentUppdateraAlienB-klassen.
     private void okBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okBTNActionPerformed
-        if(valideringsklass.tomtFalt(inputNamn)){
-        new AgentUppdateraAlienB(idb, getAlienNamn()).setVisible(true);
-        this.dispose(); }
+        if (valideringsklass.tomtFalt(txtNamn)) {
+            new AgentUppdateraAlienB(idb, getAlienNamn()).setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_okBTNActionPerformed
 
     private void tbxBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxBTNActionPerformed
@@ -122,7 +124,7 @@ private static InfDB idb;
         tbx.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_tbxBTNActionPerformed
-    
+
     /**
      * @param args the command line arguments
      */
@@ -159,17 +161,18 @@ private static InfDB idb;
                 new AgentUppdateraAlienA(idb).setVisible(true);
             }
         });
-        
+
 //Publik metod som gör att AgentUppdateraAlienB-klassen kan hämta Alien-namn.
     }
+
     public String getAlienNamn() {
-        return inputNamn.getText();
+        return txtNamn.getText();
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField inputNamn;
+    private javax.swing.JLabel lblAlien;
+    private javax.swing.JLabel lblUpdAlien;
     private javax.swing.JButton okBTN;
     private javax.swing.JButton tbxBTN;
-    private javax.swing.JLabel txtAlien;
-    private javax.swing.JLabel txtUpAlien;
+    private javax.swing.JTextField txtNamn;
     // End of variables declaration//GEN-END:variables
 }
