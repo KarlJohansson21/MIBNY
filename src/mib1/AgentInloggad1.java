@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package mib1;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 /**
@@ -39,71 +40,84 @@ public class AgentInloggad1 extends javax.swing.JFrame {
         datumBTN = new javax.swing.JButton();
         lånaFordon = new javax.swing.JButton();
         lånaUtrustning = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        logoutBTN.setText("jButton1");
+        logoutBTN.setText("Logga ut");
+        logoutBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutBTNActionPerformed(evt);
+            }
+        });
 
-        bytlösenBTN.setText("jButton1");
+        bytlösenBTN.setText("Byt Lösenord");
         bytlösenBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bytlösenBTNActionPerformed(evt);
             }
         });
 
-        utrustningBTN.setText("jButton1");
+        utrustningBTN.setText("Registrera utrustning");
         utrustningBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 utrustningBTNActionPerformed(evt);
             }
         });
 
-        områdeschefBTN.setText("jButton1");
+        områdeschefBTN.setText("Områdeschef");
         områdeschefBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 områdeschefBTNActionPerformed(evt);
             }
         });
 
-        addAlien.setText("jButton1");
+        addAlien.setText("Registrera Alien");
         addAlien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addAlienActionPerformed(evt);
             }
         });
 
-        updateAlien.setText("jButton1");
+        updateAlien.setText("Redigera Alien");
         updateAlien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateAlienActionPerformed(evt);
             }
         });
 
-        sökAlienBTN.setText("jButton1");
+        sökAlienBTN.setText("Sök Alien");
         sökAlienBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sökAlienBTNActionPerformed(evt);
             }
         });
 
-        datumBTN.setText("jButton1");
+        datumBTN.setText("Sök Alien mellan 2 datum");
         datumBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 datumBTNActionPerformed(evt);
             }
         });
 
-        lånaFordon.setText("jButton1");
+        lånaFordon.setText("Låna fordon");
         lånaFordon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lånaFordonActionPerformed(evt);
             }
         });
 
-        lånaUtrustning.setText("jButton1");
+        lånaUtrustning.setText("Låna utrustning");
         lånaUtrustning.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lånaUtrustningActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Sök Alien (plats)");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -111,47 +125,52 @@ public class AgentInloggad1 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(174, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(addAlien)
-                    .addComponent(områdeschefBTN)
-                    .addComponent(utrustningBTN)
-                    .addComponent(bytlösenBTN)
-                    .addComponent(logoutBTN))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(updateAlien)
-                    .addComponent(sökAlienBTN)
-                    .addComponent(datumBTN)
-                    .addComponent(lånaFordon)
-                    .addComponent(lånaUtrustning))
-                .addGap(70, 70, 70))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(sökAlienBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(bytlösenBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(områdeschefBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(addAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(utrustningBTN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(updateAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(datumBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lånaUtrustning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lånaFordon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(logoutBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(104, 104, 104)
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addAlien)
                     .addComponent(updateAlien))
+                .addGap(3, 3, 3)
+                .addComponent(sökAlienBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(logoutBTN)
-                    .addComponent(sökAlienBTN))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bytlösenBTN)
-                    .addComponent(datumBTN))
+                    .addComponent(datumBTN)
+                    .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(utrustningBTN)
-                    .addComponent(lånaFordon))
+                    .addComponent(lånaUtrustning))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(områdeschefBTN)
-                    .addComponent(lånaUtrustning))
-                .addContainerGap(52, Short.MAX_VALUE))
+                    .addComponent(lånaFordon))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bytlösenBTN)
+                    .addComponent(logoutBTN))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         pack();
@@ -220,12 +239,22 @@ public class AgentInloggad1 extends javax.swing.JFrame {
         låna.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lånaUtrustningActionPerformed
-       private void logoutBTNActionPerformed(java.awt.event.ActionEvent evt) {                                          
+
+    private void logoutBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBTNActionPerformed
         // TODO add your handling code here:
-        huvudFonster tbx = new huvudFonster(idb);
-        tbx.setVisible(true);
+         huvudFonster tbx = new huvudFonster(idb);
+         tbx.setVisible(true);
+         this.dispose();
+         
+    }//GEN-LAST:event_logoutBTNActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        sökAlienPlats sök = new sökAlienPlats(idb);
+        sök.setVisible(true);
         this.dispose();
-    }  
+    }//GEN-LAST:event_jButton1ActionPerformed
+   
        
     /**
      * @param args the command line arguments
@@ -262,6 +291,7 @@ public class AgentInloggad1 extends javax.swing.JFrame {
     private javax.swing.JButton addAlien;
     private javax.swing.JButton bytlösenBTN;
     private javax.swing.JButton datumBTN;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton logoutBTN;
     private javax.swing.JButton lånaFordon;
     private javax.swing.JButton lånaUtrustning;

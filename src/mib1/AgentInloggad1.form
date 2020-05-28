@@ -23,56 +23,63 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="174" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="addAlien" min="-2" max="-2" attributes="0"/>
-                  <Component id="områdeschefBTN" min="-2" max="-2" attributes="0"/>
-                  <Component id="utrustningBTN" min="-2" max="-2" attributes="0"/>
-                  <Component id="bytlösenBTN" min="-2" max="-2" attributes="0"/>
-                  <Component id="logoutBTN" min="-2" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="sökAlienBTN" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="bytlösenBTN" max="32767" attributes="0"/>
+                          <Component id="områdeschefBTN" max="32767" attributes="0"/>
+                          <Component id="addAlien" max="32767" attributes="0"/>
+                          <Component id="utrustningBTN" alignment="1" pref="151" max="32767" attributes="0"/>
+                          <Component id="jButton1" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="updateAlien" max="32767" attributes="0"/>
+                          <Component id="datumBTN" max="32767" attributes="0"/>
+                          <Component id="lånaUtrustning" max="32767" attributes="0"/>
+                          <Component id="lånaFordon" max="32767" attributes="0"/>
+                          <Component id="logoutBTN" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="updateAlien" min="-2" max="-2" attributes="0"/>
-                  <Component id="sökAlienBTN" min="-2" max="-2" attributes="0"/>
-                  <Component id="datumBTN" min="-2" max="-2" attributes="0"/>
-                  <Component id="lånaFordon" min="-2" max="-2" attributes="0"/>
-                  <Component id="lånaUtrustning" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+              <EmptySpace pref="68" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="addAlien" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="updateAlien" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+              <Component id="sökAlienBTN" min="-2" pref="35" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="logoutBTN" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="sökAlienBTN" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="bytlösenBTN" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="datumBTN" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="utrustningBTN" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lånaFordon" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lånaUtrustning" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="områdeschefBTN" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lånaUtrustning" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lånaFordon" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="52" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="bytlösenBTN" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="logoutBTN" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="85" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -80,12 +87,15 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="logoutBTN">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="text" type="java.lang.String" value="Logga ut"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logoutBTNActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="bytl&#xf6;senBTN">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="text" type="java.lang.String" value="Byt L&#xf6;senord"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bytl&#xf6;senBTNActionPerformed"/>
@@ -93,7 +103,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="utrustningBTN">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="text" type="java.lang.String" value="Registrera utrustning"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="utrustningBTNActionPerformed"/>
@@ -101,7 +111,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="omr&#xe5;deschefBTN">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="text" type="java.lang.String" value="Omr&#xe5;deschef"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="omr&#xe5;deschefBTNActionPerformed"/>
@@ -109,7 +119,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="addAlien">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="text" type="java.lang.String" value="Registrera Alien"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addAlienActionPerformed"/>
@@ -117,7 +127,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="updateAlien">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="text" type="java.lang.String" value="Redigera Alien"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateAlienActionPerformed"/>
@@ -125,7 +135,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="s&#xf6;kAlienBTN">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="text" type="java.lang.String" value="S&#xf6;k Alien"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="s&#xf6;kAlienBTNActionPerformed"/>
@@ -133,7 +143,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="datumBTN">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="text" type="java.lang.String" value="S&#xf6;k Alien mellan 2 datum"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="datumBTNActionPerformed"/>
@@ -141,7 +151,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="l&#xe5;naFordon">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="text" type="java.lang.String" value="L&#xe5;na fordon"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="l&#xe5;naFordonActionPerformed"/>
@@ -149,10 +159,18 @@
     </Component>
     <Component class="javax.swing.JButton" name="l&#xe5;naUtrustning">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="text" type="java.lang.String" value="L&#xe5;na utrustning"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="l&#xe5;naUtrustningActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="S&#xf6;k Alien (plats)"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
