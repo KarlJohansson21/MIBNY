@@ -44,6 +44,7 @@ public class AgentInloggad extends javax.swing.JFrame {
         uppdateraAlienBTN = new javax.swing.JButton();
         sökAlienBTN = new javax.swing.JButton();
         datumAlienBTN = new javax.swing.JButton();
+        sokRasBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -105,12 +106,22 @@ public class AgentInloggad extends javax.swing.JFrame {
             }
         });
 
+        sokRasBTN.setText("Sök Alien efter ras");
+        sokRasBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sokRasBTNActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(119, 119, 119)
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(127, 127, 127)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -121,10 +132,8 @@ public class AgentInloggad extends javax.swing.JFrame {
                             .addComponent(läggTillAlienBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(uppdateraAlienBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(sökAlienBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(datumAlienBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(jLabel1)))
+                            .addComponent(datumAlienBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(sokRasBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(100, 125, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -145,6 +154,8 @@ public class AgentInloggad extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(uppdateraAlienBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(sokRasBTN)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(sökAlienBTN)
                 .addGap(18, 18, 18)
                 .addComponent(logoutBTN)
@@ -206,6 +217,12 @@ public class AgentInloggad extends javax.swing.JFrame {
        this.dispose();
     }//GEN-LAST:event_datumAlienBTNActionPerformed
 
+    private void sokRasBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sokRasBTNActionPerformed
+      AlienRas alienras = new AlienRas(idb);
+      alienras.setVisible(true);
+      this.dispose();
+    }//GEN-LAST:event_sokRasBTNActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -249,6 +266,7 @@ public class AgentInloggad extends javax.swing.JFrame {
     private javax.swing.JButton logoutBTN;
     private javax.swing.JButton läggTillAlienBTN;
     private javax.swing.JButton områdeschefBTN;
+    private javax.swing.JButton sokRasBTN;
     private javax.swing.JButton sökAlienBTN;
     private javax.swing.JButton uppdateraAlienBTN;
     private javax.swing.JButton utrustningBTN;

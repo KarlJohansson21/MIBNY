@@ -305,8 +305,8 @@ public class AgentUppdateraAlienB extends javax.swing.JFrame {
     }//GEN-LAST:event_saveBTNActionPerformed
     }
     private void tbxBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxBTNActionPerformed
-        AgentInloggad tbx = new AgentInloggad(idb);
-        tbx.setVisible(true);
+        AgentUppdateraAlienA tbxTillA = new AgentUppdateraAlienA(idb);
+        tbxTillA.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_tbxBTNActionPerformed
 

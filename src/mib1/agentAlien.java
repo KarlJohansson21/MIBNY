@@ -200,7 +200,7 @@ public class agentAlien extends javax.swing.JFrame {
         // Valideringsklass som kontrollerar att användaren matat in ett lösenord som är kortare än 6 tecken. 
         if (valideringsklass.longPassword(txtPassword)) {
             // Valideringsklass som kontrollerar att användaren matat in data i alla fält.
-            if (valideringsklass.tomtFalt(txtNamn) && valideringsklass.tomtFalt(txtPassword) && valideringsklass.tomtFalt(txtPhone) && valideringsklass.tomtFalt(txtDate) && valideringsklass.tomtFalt(txtRasSpec) && valideringsklass.tomtFalt(txtChef) && valideringsklass.tomtFalt(txtPlats)) {
+            if (valideringsklass.tomtFalt(txtNamn) && valideringsklass.tomtFalt(txtPassword) && valideringsklass.tomtFalt(txtPhone) && valideringsklass.tomtFalt(txtDate) && valideringsklass.tomtFalt(txtChef) && valideringsklass.tomtFalt(txtPlats)) {
                 //Valideringsklass som kontrollerar att användaren matat in data i comboboxen.
                 if (valideringsklass.tomCombo(comboBoxRas))
         try {
@@ -290,7 +290,7 @@ public class agentAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_tbxBTNActionPerformed
 
     private void comboBoxRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxRasActionPerformed
-        // TODO add your handling code here:
+        // Sätter rätt värde på labeln åt höger beroende på vad användaren väljer i comboboxen. 
         String val = comboBoxRas.getSelectedItem().toString();
         String fråga = txtRasSpec.getText();
         if (val.equals("Squid")) {
