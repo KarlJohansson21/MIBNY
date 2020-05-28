@@ -24,8 +24,8 @@ public class agentAlien extends javax.swing.JFrame {
     public agentAlien(InfDB idb) {
         initComponents();
          this.idb = idb;
-        valLBL.setVisible(true);
-        valLBL.setText("Ange antal boogies:");
+        lblRasSpec.setVisible(true);
+        lblRasSpec.setText("Ange antal boogies:");
         
          
     }
@@ -38,43 +38,43 @@ public class agentAlien extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtAddAlien = new javax.swing.JLabel();
-        dateLBL = new javax.swing.JLabel();
-        dateVal = new javax.swing.JTextField();
-        nameLBL = new javax.swing.JLabel();
-        nameVal = new javax.swing.JTextField();
-        passLBL = new javax.swing.JLabel();
-        phoneLBL = new javax.swing.JLabel();
-        phoneVal = new javax.swing.JTextField();
-        platsLBL = new javax.swing.JLabel();
-        platsVal = new javax.swing.JTextField();
-        chefLBL = new javax.swing.JLabel();
-        chefVal = new javax.swing.JTextField();
+        lblAddAlien = new javax.swing.JLabel();
+        lblDate = new javax.swing.JLabel();
+        txtDate = new javax.swing.JTextField();
+        lblName = new javax.swing.JLabel();
+        txtNamn = new javax.swing.JTextField();
+        lblPassword = new javax.swing.JLabel();
+        lblPhone = new javax.swing.JLabel();
+        txtPhone = new javax.swing.JTextField();
+        lblPlats = new javax.swing.JLabel();
+        txtPlats = new javax.swing.JTextField();
+        lblChef = new javax.swing.JLabel();
+        txtChef = new javax.swing.JTextField();
         saveBTN = new javax.swing.JButton();
         tbxBTN = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        passVal = new javax.swing.JPasswordField();
+        lblDate2 = new javax.swing.JLabel();
+        lblChef2 = new javax.swing.JLabel();
+        txtPassword = new javax.swing.JPasswordField();
         comboBoxRas = new javax.swing.JComboBox<>();
-        txtRas = new javax.swing.JLabel();
-        valLBL = new javax.swing.JLabel();
-        textVal = new javax.swing.JTextField();
+        lblRas = new javax.swing.JLabel();
+        lblRasSpec = new javax.swing.JLabel();
+        txtRasSpec = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        txtAddAlien.setText("Lägg till Alien:");
+        lblAddAlien.setText("Lägg till Alien:");
 
-        dateLBL.setText("Registreringsdatum");
+        lblDate.setText("Registreringsdatum");
 
-        nameLBL.setText("Namn");
+        lblName.setText("Namn");
 
-        passLBL.setText("Lösenord");
+        lblPassword.setText("Lösenord");
 
-        phoneLBL.setText("Telefon");
+        lblPhone.setText("Telefon");
 
-        platsLBL.setText("Plats (ID)");
+        lblPlats.setText("Plats (ID)");
 
-        chefLBL.setText("Ansvarig agent ");
+        lblChef.setText("Ansvarig agent ");
 
         saveBTN.setText("Spara");
         saveBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -90,11 +90,11 @@ public class agentAlien extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("(YYYY-MM-DD)");
+        lblDate2.setText("(YYYY-MM-DD)");
 
-        jLabel2.setText("(ID)");
+        lblChef2.setText("(ID)");
 
-        passVal.setText("jPasswordField1");
+        txtPassword.setText("jPasswordField1");
 
         comboBoxRas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Boglodite", "Squid", "Worm" }));
         comboBoxRas.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +103,7 @@ public class agentAlien extends javax.swing.JFrame {
             }
         });
 
-        txtRas.setText("Ras");
+        lblRas.setText("Ras");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -119,75 +119,74 @@ public class agentAlien extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nameLBL)
+                            .addComponent(lblName)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtRas)
-                                .addComponent(txtAddAlien)
-                                .addComponent(passLBL)
-                                .addComponent(jLabel1)
-                                .addComponent(dateVal)
-                                .addComponent(nameVal)
-                                .addComponent(dateLBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(passVal, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                                .addComponent(lblRas)
+                                .addComponent(lblAddAlien)
+                                .addComponent(lblPassword)
+                                .addComponent(lblDate2)
+                                .addComponent(txtDate)
+                                .addComponent(txtNamn)
+                                .addComponent(lblDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
                                 .addComponent(comboBoxRas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(phoneLBL)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(platsLBL)
-                                .addComponent(chefLBL)
-                                .addComponent(jLabel2)
-                                .addComponent(chefVal, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
-                                .addComponent(platsVal)
-                                .addComponent(phoneVal))
-                            .addComponent(textVal, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                            .addComponent(valLBL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(lblPhone)
+                            .addComponent(lblPlats)
+                            .addComponent(lblChef)
+                            .addComponent(lblChef2)
+                            .addComponent(txtChef, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                            .addComponent(txtPlats)
+                            .addComponent(txtPhone)
+                            .addComponent(txtRasSpec, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                            .addComponent(lblRasSpec, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(119, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtAddAlien)
+                .addComponent(lblAddAlien)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(dateLBL)
-                            .addComponent(chefLBL))
+                            .addComponent(lblDate)
+                            .addComponent(lblChef))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
+                            .addComponent(lblDate2)
+                            .addComponent(lblChef2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(dateVal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(chefVal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtChef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(nameLBL)
-                            .addComponent(platsLBL))
+                            .addComponent(lblName)
+                            .addComponent(lblPlats))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(nameVal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(platsVal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPlats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(passLBL)
-                            .addComponent(phoneLBL))
+                            .addComponent(lblPassword)
+                            .addComponent(lblPhone))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(passVal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(phoneVal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtRas))
+                        .addComponent(lblRas))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, Short.MAX_VALUE)
-                        .addComponent(valLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblRasSpec, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(1, 1, 1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboBoxRas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textVal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtRasSpec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveBTN)
@@ -199,24 +198,26 @@ public class agentAlien extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBTNActionPerformed
-String  val = comboBoxRas.getSelectedItem().toString();
+ if (valideringsklass.longPassword(txtPassword)) {
+        
+         String  val = comboBoxRas.getSelectedItem().toString();
         try {
-            String name = nameVal.getText();
-            String password = passVal.getText();
-            String phone = phoneVal.getText();
-            String date = dateVal.getText();
+            String name = txtNamn.getText();
+            String password = txtPassword.getText();
+            String phone = txtPhone.getText();
+            String date = txtDate.getText();
 
             // Konvertering från String till Integer.
             //int alienID = Integer.parseInt(idVal.getText());
-            int chef = Integer.parseInt(chefVal.getText());
-            int plats = Integer.parseInt(platsVal.getText());
+            int chef = Integer.parseInt(txtChef.getText());
+            int plats = Integer.parseInt(txtPlats.getText());
 
             //Konvertering från JavaDate till SQLdate.
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             Date parsedate = format.parse(date);
             java.sql.Date daydate = new java.sql.Date(parsedate.getTime());
 
-            String RasSpec = textVal.getText();
+            String RasSpec = txtRasSpec.getText();
             
             try {
 
@@ -250,11 +251,7 @@ String  val = comboBoxRas.getSelectedItem().toString();
         } catch (ParseException ex) {
             Logger.getLogger(agentAlien.class.getName()).log(Level.SEVERE, null, ex);
 
-        }
-//agentAlienB ras = new agentAlienB(idb);
-  //      ras.setVisible(true);
-    //   this.dispose();
-      
+        }   }
     }//GEN-LAST:event_saveBTNActionPerformed
 
     private void tbxBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxBTNActionPerformed
@@ -277,7 +274,7 @@ String  val = comboBoxRas.getSelectedItem().toString();
             }
             // Annars är det vanliga agentsidan man kommer till
             else{
-                AgentInloggad tbx = new AgentInloggad(idb);
+                AgentInloggad1 tbx = new AgentInloggad1(idb);
                 tbx.setVisible(true);
                 this.dispose();
                  
@@ -292,21 +289,21 @@ String  val = comboBoxRas.getSelectedItem().toString();
     private void comboBoxRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxRasActionPerformed
         // TODO add your handling code here:
   String  val= comboBoxRas.getSelectedItem().toString();
-          String fråga = textVal.getText();
+          String fråga = txtRasSpec.getText();
          if(val.equals("Squid")){
-            valLBL.setVisible(true);
-            valLBL.setText("Ange antal armar:");
-            textVal.setVisible(true);
+            lblRasSpec.setVisible(true);
+            lblRasSpec.setText("Ange antal armar:");
+            txtRasSpec.setVisible(true);
             }
         else if(val.equals("Boglodite")){
-            valLBL.setVisible(true);
-            valLBL.setText("Ange antal boogies:");
-             textVal.setVisible(true);
+            lblRasSpec.setVisible(true);
+            lblRasSpec.setText("Ange antal boogies:");
+             txtRasSpec.setVisible(true);
         }
           else{
-            valLBL.setVisible(false);
-            valLBL.setText("-");
-            textVal.setVisible(false);
+            lblRasSpec.setVisible(false);
+            lblRasSpec.setText("-");
+            txtRasSpec.setVisible(false);
         }                             
     }//GEN-LAST:event_comboBoxRasActionPerformed
 
@@ -318,26 +315,26 @@ String  val = comboBoxRas.getSelectedItem().toString();
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel chefLBL;
-    private javax.swing.JTextField chefVal;
     private javax.swing.JComboBox<String> comboBoxRas;
-    private javax.swing.JLabel dateLBL;
-    private javax.swing.JTextField dateVal;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel nameLBL;
-    private javax.swing.JTextField nameVal;
-    private javax.swing.JLabel passLBL;
-    private javax.swing.JPasswordField passVal;
-    private javax.swing.JLabel phoneLBL;
-    private javax.swing.JTextField phoneVal;
-    private javax.swing.JLabel platsLBL;
-    private javax.swing.JTextField platsVal;
+    private javax.swing.JLabel lblAddAlien;
+    private javax.swing.JLabel lblChef;
+    private javax.swing.JLabel lblChef2;
+    private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblDate2;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblPhone;
+    private javax.swing.JLabel lblPlats;
+    private javax.swing.JLabel lblRas;
+    private javax.swing.JLabel lblRasSpec;
     private javax.swing.JButton saveBTN;
     private javax.swing.JButton tbxBTN;
-    private javax.swing.JTextField textVal;
-    private javax.swing.JLabel txtAddAlien;
-    private javax.swing.JLabel txtRas;
-    private javax.swing.JLabel valLBL;
+    private javax.swing.JTextField txtChef;
+    private javax.swing.JTextField txtDate;
+    private javax.swing.JTextField txtNamn;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtPhone;
+    private javax.swing.JTextField txtPlats;
+    private javax.swing.JTextField txtRasSpec;
     // End of variables declaration//GEN-END:variables
 }

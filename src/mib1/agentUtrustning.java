@@ -196,7 +196,7 @@ public class agentUtrustning extends javax.swing.JFrame {
 
     private void tbxBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxBTNActionPerformed
         // TODO add your handling code here:
-        //Tar användaren tillbaka till AgentInloggad fönstret
+        //Tar användaren tillbaka till AgentInloggad1 fönstret
         String test = huvudFonster.hamtaAnvandare();
         //om agenten är admin så kommer man till adminsidan via knappen annars så kommer man till vanliga agentsidan
         try{
@@ -215,7 +215,7 @@ public class agentUtrustning extends javax.swing.JFrame {
             }
             // Annars är det vanliga agentsidan man kommer till
             else{
-                AgentInloggad tbx = new AgentInloggad(idb);
+                AgentInloggad1 tbx = new AgentInloggad1(idb);
                 tbx.setVisible(true);
                 this.dispose();
                  

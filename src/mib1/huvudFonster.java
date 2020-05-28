@@ -29,6 +29,11 @@ public class huvudFonster extends javax.swing.JFrame {
     public huvudFonster(InfDB idb) {
         initComponents();
         inloggad = false;
+
+
+ 
+
+
         this.idb = idb;
     
         
@@ -201,11 +206,11 @@ public class huvudFonster extends javax.swing.JFrame {
                     
 
                 }
-                //Om användaren skriver in korrekta uppgifter så blir de vidareskickade till AgentInloggad fönstret
+                //Om användaren skriver in korrekta uppgifter så blir de vidareskickade till AgentInloggad1 fönstret
                 else if(user.equals(Username) && pass.equals(password1)){
                     anvandare = Username;
                     inloggad = true;
-                    AgentInloggad inne = new AgentInloggad(idb);
+                    AgentInloggad1 inne = new AgentInloggad1(idb);
                     inne.setVisible(true);
                     inne.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
                     this.dispose();

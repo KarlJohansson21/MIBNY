@@ -11,6 +11,8 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import com.github.lgooddatepicker.components.DatePicker;
+import javax.swing.JPasswordField;
+
 
 /**
  *
@@ -37,6 +39,7 @@ public class valideringsklass {
         }
         return resultat;
     }
+
     public static boolean tomDate(DatePicker dateCheck){
         boolean resultat = true;
         
@@ -47,7 +50,20 @@ public class valideringsklass {
         return resultat;
     }
     
-    /* public static boolean kollaDatum(String korrektDatumFormat) {
+     
+
+    
+    public static boolean longPassword(JPasswordField passwordCheck) {
+        boolean resultat = true;
+         if(passwordCheck.getText().length() > 6) {
+              JOptionPane.showMessageDialog(null, "Lösenordet får vara max 6 tecken, välj ett kortare lösenord!");
+            resultat = false;
+         }
+         return resultat;
+    }
+    
+   /* public static boolean kollaDatum(String korrektDatumFormat) {
+>>>>>>> origin/master
         boolean result = false;
 
         //Sträng med förbestämd "mall" om hur det inskicade strängvärdet ska se ut.

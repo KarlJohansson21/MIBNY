@@ -136,7 +136,7 @@ public class Områdeschef extends javax.swing.JFrame {
 
     private void tbxBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxBTNActionPerformed
         // TODO add your handling code here:
-        AgentInloggad tbx = new AgentInloggad(idb);
+        AgentInloggad1 tbx = new AgentInloggad1(idb);
         tbx.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_tbxBTNActionPerformed

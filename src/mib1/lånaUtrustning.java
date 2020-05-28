@@ -154,7 +154,7 @@ public class lånaUtrustning extends javax.swing.JFrame {
             }
             // Annars är det vanliga agentsidan man kommer till
             else{
-                AgentInloggad tbx = new AgentInloggad(idb);
+                AgentInloggad1 tbx = new AgentInloggad1(idb);
                 tbx.setVisible(true);
                 this.dispose();
                  

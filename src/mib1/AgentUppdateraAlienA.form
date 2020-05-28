@@ -28,10 +28,10 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtUpAlien" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtAlien" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblUpdAlien" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblAlien" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="inputID" min="-2" pref="73" max="-2" attributes="0"/>
+                              <Component id="txtNamn" min="-2" pref="73" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="okBTN" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -42,7 +42,7 @@
                       <Component id="tbxBTN" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="182" max="32767" attributes="0"/>
+              <EmptySpace pref="201" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -50,12 +50,12 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtUpAlien" min="-2" max="-2" attributes="0"/>
+              <Component id="lblUpdAlien" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-              <Component id="txtAlien" min="-2" max="-2" attributes="0"/>
+              <Component id="lblAlien" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="inputID" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNamn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="okBTN" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="150" max="32767" attributes="0"/>
@@ -66,19 +66,19 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="txtUpAlien">
+    <Component class="javax.swing.JLabel" name="lblUpdAlien">
       <Properties>
         <Property name="text" type="java.lang.String" value="Uppdatera Alien"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="txtAlien">
+    <Component class="javax.swing.JLabel" name="lblAlien">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Vilket Alien-ID har alien du vill uppdatera?"/>
+        <Property name="text" type="java.lang.String" value="Vilket namn har alien du vill uppdatera?"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="inputID">
+    <Component class="javax.swing.JTextField" name="txtNamn">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inputIDActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNamnActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="okBTN">
