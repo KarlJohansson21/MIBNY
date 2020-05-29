@@ -5,7 +5,6 @@
  */
 package mib1;
 
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import oru.inf.InfDB;
@@ -15,13 +14,16 @@ import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author KarlJ
+ * @author jespersundin
  */
 public class AgentDatum extends javax.swing.JFrame {
-     private static InfDB idb;
+
+    private static InfDB idb;
+
     /**
      * Creates new form AgentDatum
      */
@@ -39,22 +41,40 @@ public class AgentDatum extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblDateHead = new javax.swing.JLabel();
+        lblDate1 = new javax.swing.JLabel();
+        lblDate2 = new javax.swing.JLabel();
         txtDate1 = new javax.swing.JTextField();
         txtDate2 = new javax.swing.JTextField();
-        newDate1 = new javax.swing.JTextField();
-        newDate2 = new javax.swing.JTextField();
+        lblStreck = new javax.swing.JLabel();
+        okBTN = new javax.swing.JButton();
+        tbxBTN = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         resultatPNL = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        txtDate1.setText("jTextField1");
+        lblDateHead.setText("Se Aliens som registrerats mellan två datum:");
 
-        txtDate2.setText("jTextField1");
+        lblDate1.setText("Första datumet:");
 
-        newDate1.setText("jTextField1");
+        lblDate2.setText("Andra datumet:");
 
-        newDate2.setText("jTextField1");
+        lblStreck.setText("-");
+
+        okBTN.setText("OK");
+        okBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okBTNActionPerformed(evt);
+            }
+        });
+
+        tbxBTN.setText("Tillbaka");
+        tbxBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbxBTNActionPerformed(evt);
+            }
+        });
 
         resultatPNL.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -71,42 +91,57 @@ public class AgentDatum extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(122, 122, 122)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(81, 81, 81)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtDate2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDate1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(newDate2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(newDate1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDate1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtDate1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblStreck, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblDate2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtDate2))
+                        .addGap(51, 51, 51)
+                        .addComponent(okBTN))
+                    .addComponent(lblDateHead)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(12, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(178, 178, 178)
+                .addComponent(tbxBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtDate1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtDate2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)
-                        .addComponent(newDate1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(newDate2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(lblDateHead)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDate1)
+                    .addComponent(lblDate2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDate2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblStreck)
+                    .addComponent(txtDate1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(okBTN))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tbxBTN)
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-     private void okBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okBTNActionPerformed
+    private void okBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okBTNActionPerformed
         // Valideringsklass som kontrollerar ifall användaren matat in data i båda fälten.
-        if (valideringsklass.tomtFalt(newDate1) && valideringsklass.tomtFalt(newDate2)) {
+     if (valideringsklass.tomtFalt(txtDate1) && valideringsklass.tomtFalt(txtDate2)) {
             // Valideringsklass som kontrollerar ifall användaren har matat in datum i rätt format. 
           //  if (valideringsklass.kollaDatum(newDate1) && valideringsklass.kollaDatum(newDate2))
             try {
@@ -133,14 +168,84 @@ public class AgentDatum extends javax.swing.JFrame {
                 Logger.getLogger(AgentDatum.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }
-     
+    }//GEN-LAST:event_okBTNActionPerformed
 
+    private void tbxBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxBTNActionPerformed
+       String test = huvudFonster.hamtaAnvandare();
+        //om agenten är admin så kommer man till adminsidan via knappen annars så kommer man till vanliga agentsidan
+        try {
+            //String namn = idb.fetchSingle("Select namn from agent where namn = " + "'" + test + "'");
+            // Här hämtar den id på den inloggade agenten
+            String id = idb.fetchSingle("Select agent_id from agent where namn = " + "'" + test + "'");
+            // Konverterar till int
+            int convertId = Integer.parseInt(id);
+            //If agenten är admin 
+            String om = idb.fetchSingle("select agent.ADMINISTRATOR from agent where agent_id = " + "'" + convertId + "'");
+            //Om villkorret uppfylls(en agent är admin om det står J i administrator kolumnen)
+            if (om.equals("J")) {
+                AdminFonster tbxAdmin = new AdminFonster(idb);
+                tbxAdmin.setVisible(true);
+                this.dispose();
+            } // Annars är det vanliga agentsidan man kommer till
+            else {
+                AgentInloggad tbx = new AgentInloggad(idb);
+                tbx.setVisible(true);
+                this.dispose();
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Något gick fel");
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_tbxBTNActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(AgentDatum.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(AgentDatum.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(AgentDatum.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(AgentDatum.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new AgentDatum(idb).setVisible(true);
+            }
+        });
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField newDate1;
-    private javax.swing.JTextField newDate2;
+    private javax.swing.JLabel lblDate1;
+    private javax.swing.JLabel lblDate2;
+    private javax.swing.JLabel lblDateHead;
+    private javax.swing.JLabel lblStreck;
+    private javax.swing.JButton okBTN;
     private javax.swing.JTable resultatPNL;
+    private javax.swing.JButton tbxBTN;
     private javax.swing.JTextField txtDate1;
     private javax.swing.JTextField txtDate2;
     // End of variables declaration//GEN-END:variables

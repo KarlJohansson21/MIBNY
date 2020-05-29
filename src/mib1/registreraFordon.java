@@ -7,6 +7,7 @@ package mib1;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
+import com.github.lgooddatepicker.components.DatePicker ;
 /**
  *
  * @author KarlJ
@@ -114,7 +115,7 @@ public class registreraFordon extends javax.swing.JFrame {
         int år = årsmodellYearChooser.getYear();
         
         
-        if(valideringsklass.tomtFalt(fIdTextField) && valideringsklass.tomtFalt(fordonsBeskrivningTextField) && valideringsklass.tomDate(regDatePicker)){
+        if(valideringsklass.tomtFalt(fIdTextField) && valideringsklass.longFordonsId(fIdTextField) && valideringsklass.tomtFalt(fordonsBeskrivningTextField) && valideringsklass.tomDate(regDatePicker)){
           try{
            idb.insert("Insert into fordon values ('" + reg + "','" + modell + "','" + regDatum + "','" + år + "')");
            JOptionPane.showMessageDialog(null, "Nytt fordon registrerat");
