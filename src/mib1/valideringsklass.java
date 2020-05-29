@@ -61,9 +61,17 @@ public class valideringsklass {
          }
          return resultat;
     }
+    public static boolean longFordonsId(JTextField karaktärCheck) {
+        boolean resultat = true;
+         if(karaktärCheck.getText().length() > 6) {
+              JOptionPane.showMessageDialog(null, "Registreringsnummret får vara max 6 tecken, välj ett kortare registreringsnummer!");
+            resultat = false;
+         }
+         return resultat;
+    }
+    
     
    /* public static boolean kollaDatum(String korrektDatumFormat) {
->>>>>>> origin/master
         boolean result = false;
 
         //Sträng med förbestämd "mall" om hur det inskicade strängvärdet ska se ut.

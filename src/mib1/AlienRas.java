@@ -5,25 +5,28 @@
  */
 package mib1;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import oru.inf.InfDB;
+import oru.inf.InfException;
 
 /**
  *
- * @author Jesper
+ * @author jespersundin
  */
-public class AgentUppdateraAlienA extends javax.swing.JFrame {
+public class AlienRas extends javax.swing.JFrame {
 
     private static InfDB idb;
 
-    static String getAlienNamn1() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     /**
-     * Creates new form AgentUppdateraAlien
+     * Creates new form AlienRas
      */
-    public AgentUppdateraAlienA(InfDB idb) {
+    public AlienRas(InfDB idb) {
         initComponents();
         this.idb = idb;
     }
@@ -37,23 +40,26 @@ public class AgentUppdateraAlienA extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblUpdAlien = new javax.swing.JLabel();
-        lblAlien = new javax.swing.JLabel();
-        txtNamn = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        resultatPNL = new javax.swing.JTable();
+        rasComboBox = new javax.swing.JComboBox<>();
         okBTN = new javax.swing.JButton();
+        lblSokAlienHead = new javax.swing.JLabel();
         tbxBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblUpdAlien.setText("Uppdatera Alien");
+        resultatPNL.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        lblAlien.setText("Vilket namn har alien du vill uppdatera?");
-
-        txtNamn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNamnActionPerformed(evt);
+            },
+            new String [] {
+                "Namn", "Alien-ID"
             }
-        });
+        ));
+        jScrollPane1.setViewportView(resultatPNL);
+
+        rasComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Boglodite", "Squid", "Worm" }));
 
         okBTN.setText("OK");
         okBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -61,6 +67,8 @@ public class AgentUppdateraAlienA extends javax.swing.JFrame {
                 okBTNActionPerformed(evt);
             }
         });
+
+        lblSokAlienHead.setText("Sök Alien efter ras");
 
         tbxBTN.setText("Tillbaka");
         tbxBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -78,75 +86,82 @@ public class AgentUppdateraAlienA extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblUpdAlien)
-                            .addComponent(lblAlien)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(okBTN))))
+                                .addComponent(rasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(okBTN))
+                            .addComponent(lblSokAlienHead)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
+                        .addGap(137, 137, 137)
                         .addComponent(tbxBTN)))
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblUpdAlien)
-                .addGap(48, 48, 48)
-                .addComponent(lblAlien)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblSokAlienHead)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(okBTN))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
-                .addComponent(tbxBTN)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(tbxBTN))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNamnActionPerformed
-
-    // Metod för att instansiera AgentUppdateraAlienB-klassen.
     private void okBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okBTNActionPerformed
-        if (valideringsklass.tomtFalt(txtNamn)) {
-            new AgentUppdateraAlienB(idb, getAlienNamn()).setVisible(true);
-            this.dispose();
+        try {
+            DefaultTableModel modell = (DefaultTableModel) resultatPNL.getModel();
+            modell.setRowCount(0);
+
+            String sokRas = rasComboBox.getSelectedItem().toString();
+            ArrayList<java.util.HashMap<java.lang.String, java.lang.String>> list = idb.fetchRows("SELECT NAMN, ALIEN_ID FROM ALIEN WHERE ALIEN_ID IN (SELECT ALIEN_ID FROM " + sokRas + ")");
+
+            Object rowData[] = new Object[2];
+
+            Iterator itr = list.iterator();
+            while (itr.hasNext()) {
+                HashMap hm = (HashMap) itr.next();
+                rowData[0] = hm.get("NAMN");
+                rowData[1] = hm.get("ALIEN_ID");
+                modell.addRow(rowData);
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(AlienRas.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_okBTNActionPerformed
 
     private void tbxBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxBTNActionPerformed
-               // TODO add your handling code here:
-          String test = huvudFonster.hamtaAnvandare();
+        // TODO add your handling code here:
+        String test = huvudFonster.hamtaAnvandare();
         //om agenten är admin så kommer man till adminsidan via knappen annars så kommer man till vanliga agentsidan
-        try{
+        try {
             //String namn = idb.fetchSingle("Select namn from agent where namn = " + "'" + test + "'");
             // Här hämtar den id på den inloggade agenten
             String id = idb.fetchSingle("Select agent_id from agent where namn = " + "'" + test + "'");
             // Konverterar till int
             int convertId = Integer.parseInt(id);
             //If agenten är admin 
-            String om = idb.fetchSingle("select agent.ADMINISTRATOR from agent where agent_id = " + "'" + convertId +"'");
+            String om = idb.fetchSingle("select agent.ADMINISTRATOR from agent where agent_id = " + "'" + convertId + "'");
             //Om villkorret uppfylls(en agent är admin om det står J i administrator kolumnen)
-            if(om.equals("J")){
+            if (om.equals("J")) {
                 AdminFonster tbxAdmin = new AdminFonster(idb);
                 tbxAdmin.setVisible(true);
                 this.dispose();
-            }
-            // Annars är det vanliga agentsidan man kommer till
-            else{
-                AgentInloggad1 tbx = new AgentInloggad1(idb);
+            } // Annars är det vanliga agentsidan man kommer till
+            else {
+                AgentInloggad tbx = new AgentInloggad(idb);
                 tbx.setVisible(true);
                 this.dispose();
-                 
+
             }
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Något gick fel");
             System.out.println(e.getMessage());
         }
@@ -155,13 +170,6 @@ public class AgentUppdateraAlienA extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-
-   
-    
-        
-//Publik metod som gör att AgentUppdateraAlienB-klassen kan hämta Alien-ID.
-    
-
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -176,38 +184,30 @@ public class AgentUppdateraAlienA extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AgentUppdateraAlienA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AlienRas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AgentUppdateraAlienA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AlienRas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AgentUppdateraAlienA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AlienRas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AgentUppdateraAlienA.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AlienRas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AgentUppdateraAlienA(idb).setVisible(true);
+                new AlienRas(idb).setVisible(true);
             }
         });
-
-//Publik metod som gör att AgentUppdateraAlienB-klassen kan hämta Alien-namn.
     }
 
-
-    public String getAlienNamn() {
-        return txtNamn.getText();
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblAlien;
-    private javax.swing.JLabel lblUpdAlien;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblSokAlienHead;
     private javax.swing.JButton okBTN;
+    private javax.swing.JComboBox<String> rasComboBox;
+    private javax.swing.JTable resultatPNL;
     private javax.swing.JButton tbxBTN;
-    private javax.swing.JTextField txtNamn;
     // End of variables declaration//GEN-END:variables
 }

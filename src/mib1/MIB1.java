@@ -28,13 +28,13 @@ public class MIB1 {
             String sokVag = "";
             switch (windowsOrMac){
             case "Mac OS": 
-                    sokVag = userDir + "/db/MIBDBNY.FDB";
+                    sokVag = userDir + "/db/MIBDB.FDB";
                     
                     break;
                   
             case "Windows 10":
             
-                sokVag = userDir + "\\db\\MIBDBNY.FDB";
+                sokVag = userDir + "\\db\\MIBDB.FDB";
                 System.out.println(sokVag);
                 
                 break;

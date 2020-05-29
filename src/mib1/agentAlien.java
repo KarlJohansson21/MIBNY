@@ -5,19 +5,18 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 import javax.swing.JOptionPane;
 import java.util.Date;
-import java.text.SimpleDateFormat;  
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-
 
 /**
  *
  * @author Jesper
  */
 public class agentAlien extends javax.swing.JFrame {
+
     private static InfDB idb;
- 
+
     /**
      * Creates new form agentAlien
      */
@@ -29,6 +28,7 @@ public class agentAlien extends javax.swing.JFrame {
         
          
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -212,62 +212,71 @@ public class agentAlien extends javax.swing.JFrame {
             int chef = Integer.parseInt(txtChef.getText());
             int plats = Integer.parseInt(txtPlats.getText());
 
-            //Konvertering från JavaDate till SQLdate.
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-            Date parsedate = format.parse(date);
-            java.sql.Date daydate = new java.sql.Date(parsedate.getTime());
+                    //Konvertering från JavaDate till SQLdate.
+                    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                    Date parsedate = format.parse(date);
+                    java.sql.Date daydate = new java.sql.Date(parsedate.getTime());
 
             String RasSpec = txtRasSpec.getText();
             
             try {
 
-                String add = idb.getAutoIncrement("Alien", "Alien_ID");
-                int convertID = Integer.parseInt(add);
+                    try {
+                        // AutoIncrement som gör att Alien-ID inkrementeras. 
+                        String add = idb.getAutoIncrement("Alien", "Alien_ID");
+                        int convertID = Integer.parseInt(add);
 
-                idb.insert("insert into ALIEN (ALIEN_ID, REGISTRERINGSDATUM, LOSENORD, NAMN, TELEFON, PLATS, ANSVARIG_AGENT)"
-                        + " values ('" + add + "','" + daydate + "','" + password + "','" + name + "','" + phone + "','" + plats + "','" + chef + "')");
+                        // SQL-frågan. 
+                        idb.insert("insert into ALIEN (ALIEN_ID, REGISTRERINGSDATUM, LOSENORD, NAMN, TELEFON, PLATS, ANSVARIG_AGENT)"
+                                + " values ('" + add + "','" + daydate + "','" + password + "','" + name + "','" + phone + "','" + plats + "','" + chef + "')");
 
-                JOptionPane.showMessageDialog(null, "En ny alien har registrerats med Alien-ID: " + add);
-               
-            
-            // Beroende på vad man valt i comboboxUtrustning läggs det till i rätt tabell
-            if(val.equals("Boglodite")){
-                idb.insert("Insert into BOGLODITE (ALIEN_ID, ANTAL_BOOGIES) values ('" + add+ "','" + RasSpec + "')");
-            }
-            else if(val.equals("Squid")){
-            idb.insert("Insert into SQUID (ALIEN_ID, ANTAL_ARMAR) values ('" + add + "','" + RasSpec + "')");
-        
-        }
-            else{
-                idb.insert("Insert into WORM (ALIEN_ID) values ('" + add + "')");
+                        // Messagedialog som meddelar användaren om att en ny alien har registrerats. 
+                        JOptionPane.showMessageDialog(null, "En ny alien har registrerats med Alien-ID: " + add);
+
+                        // Beroende på vad man valt i comboboxUtrustning läggs det till i rätt tabell
+                        if (val.equals("Boglodite")) {
+                            idb.insert("Insert into BOGLODITE (ALIEN_ID, ANTAL_BOOGIES) values ('" + add + "','" + RasSpec + "')");
+                        } else if (val.equals("Squid")) {
+                            idb.insert("Insert into SQUID (ALIEN_ID, ANTAL_ARMAR) values ('" + add + "','" + RasSpec + "')");
+
+                        } else {
+                            idb.insert("Insert into WORM (ALIEN_ID) values ('" + add + "')");
+                        }
+
+                    } catch (InfException e) {
+                        JOptionPane.showMessageDialog(null, "Något gick fel, försök igen");
+                        System.out.println(e.getMessage());
+
                     }
-       
-            } catch (InfException e) {
-                JOptionPane.showMessageDialog(null, "Något gick fel, försök igen");
-                System.out.println(e.getMessage());
 
+                } 
+                    catch (Exception e) {
+                    Logger.getLogger(agentAlien.class.getName()).log(Level.SEVERE, null, e);
+
+                }
             }
+          catch (ParseException ex) {
+                    Logger.getLogger(agentAlien.class.getName()).log(Level.SEVERE, null, ex);
 
-        } catch (ParseException ex) {
-            Logger.getLogger(agentAlien.class.getName()).log(Level.SEVERE, null, ex);
-
-        }   }
+                }
+ 
+        }  
     }//GEN-LAST:event_saveBTNActionPerformed
 
     private void tbxBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbxBTNActionPerformed
         // TODO add your handling code here:
-          String test = huvudFonster.hamtaAnvandare();
+        String test = huvudFonster.hamtaAnvandare();
         //om agenten är admin så kommer man till adminsidan via knappen annars så kommer man till vanliga agentsidan
-        try{
+        try {
             //String namn = idb.fetchSingle("Select namn from agent where namn = " + "'" + test + "'");
             // Här hämtar den id på den inloggade agenten
             String id = idb.fetchSingle("Select agent_id from agent where namn = " + "'" + test + "'");
             // Konverterar till int
             int convertId = Integer.parseInt(id);
             //If agenten är admin 
-            String om = idb.fetchSingle("select agent.ADMINISTRATOR from agent where agent_id = " + "'" + convertId +"'");
+            String om = idb.fetchSingle("select agent.ADMINISTRATOR from agent where agent_id = " + "'" + convertId + "'");
             //Om villkorret uppfylls(en agent är admin om det står J i administrator kolumnen)
-            if(om.equals("J")){
+            if (om.equals("J")) {
                 AdminFonster tbxAdmin = new AdminFonster(idb);
                 tbxAdmin.setVisible(true);
                 this.dispose();
@@ -277,10 +286,9 @@ public class agentAlien extends javax.swing.JFrame {
                 AgentInloggad1 tbx = new AgentInloggad1(idb);
                 tbx.setVisible(true);
                 this.dispose();
-                 
+
             }
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Något gick fel");
             System.out.println(e.getMessage());
         }
@@ -307,8 +315,6 @@ public class agentAlien extends javax.swing.JFrame {
         }                             
     }//GEN-LAST:event_comboBoxRasActionPerformed
 
-   
-        
     /**
      * @param args the command line arguments
      */

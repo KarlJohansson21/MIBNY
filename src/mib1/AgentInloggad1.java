@@ -40,7 +40,7 @@ public class AgentInloggad1 extends javax.swing.JFrame {
         datumBTN = new javax.swing.JButton();
         lånaFordon = new javax.swing.JButton();
         lånaUtrustning = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        sökAlienPlatsBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -114,10 +114,10 @@ public class AgentInloggad1 extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Sök Alien (plats)");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        sökAlienPlatsBTN.setText("Sök Alien (plats)");
+        sökAlienPlatsBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                sökAlienPlatsBTNActionPerformed(evt);
             }
         });
 
@@ -135,7 +135,7 @@ public class AgentInloggad1 extends javax.swing.JFrame {
                             .addComponent(områdeschefBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(addAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(utrustningBTN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(sökAlienPlatsBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(updateAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -157,7 +157,7 @@ public class AgentInloggad1 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(datumBTN)
-                    .addComponent(jButton1))
+                    .addComponent(sökAlienPlatsBTN))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(utrustningBTN)
@@ -200,6 +200,7 @@ public class AgentInloggad1 extends javax.swing.JFrame {
 
     private void addAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAlienActionPerformed
         // TODO add your handling code here:
+        //Tar användaren till fönstret för att registrera ny alien
          agentAlien läggTillAlien = new agentAlien(idb);
         läggTillAlien.setVisible(true);
         this.dispose();
@@ -207,6 +208,7 @@ public class AgentInloggad1 extends javax.swing.JFrame {
 
     private void updateAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateAlienActionPerformed
         // TODO add your handling code here:
+        //Tar användaren till fönstret för att uppdatera en alien
        AgentUppdateraAlienA uppdateraAlien = new  AgentUppdateraAlienA(idb);
        uppdateraAlien.setVisible(true);
         this.dispose();
@@ -214,6 +216,7 @@ public class AgentInloggad1 extends javax.swing.JFrame {
 
     private void sökAlienBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sökAlienBTNActionPerformed
         // TODO add your handling code here:
+        //Tar användaren till sök alien fönstret
         AgentSökAlien sökAlien = new AgentSökAlien(idb);
        sökAlien.setVisible(true);
       this.dispose();
@@ -221,6 +224,7 @@ public class AgentInloggad1 extends javax.swing.JFrame {
 
     private void datumBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_datumBTNActionPerformed
         // TODO add your handling code here:
+        //Tar användaren till fönstret för att söka alien som är registrerade mellan två olika datum.
        AgentDatum alienDatum = new AgentDatum(idb);
        alienDatum.setVisible(true);
        this.dispose();
@@ -228,6 +232,7 @@ public class AgentInloggad1 extends javax.swing.JFrame {
 
     private void lånaFordonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lånaFordonActionPerformed
         // TODO add your handling code here:
+        //Tar användaren till fönstret för att låna fordon
         lånaFordon låna = new lånaFordon(idb);
         låna.setVisible(true);
         this.dispose();
@@ -235,6 +240,7 @@ public class AgentInloggad1 extends javax.swing.JFrame {
 
     private void lånaUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lånaUtrustningActionPerformed
         // TODO add your handling code here:
+        //Tar användaren till fönstret för att låna utrustning
          lånaUtrustning låna = new lånaUtrustning(idb);
         låna.setVisible(true);
         this.dispose();
@@ -242,18 +248,20 @@ public class AgentInloggad1 extends javax.swing.JFrame {
 
     private void logoutBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBTNActionPerformed
         // TODO add your handling code here:
+        //Tar användaren tillbaka till huvudfonster
          huvudFonster tbx = new huvudFonster(idb);
          tbx.setVisible(true);
          this.dispose();
          
     }//GEN-LAST:event_logoutBTNActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void sökAlienPlatsBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sökAlienPlatsBTNActionPerformed
         // TODO add your handling code here:
+        //Tar användaren till sökalienplats fönster
         sökAlienPlats sök = new sökAlienPlats(idb);
         sök.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_sökAlienPlatsBTNActionPerformed
    
        
     /**
@@ -291,12 +299,12 @@ public class AgentInloggad1 extends javax.swing.JFrame {
     private javax.swing.JButton addAlien;
     private javax.swing.JButton bytlösenBTN;
     private javax.swing.JButton datumBTN;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton logoutBTN;
     private javax.swing.JButton lånaFordon;
     private javax.swing.JButton lånaUtrustning;
     private javax.swing.JButton områdeschefBTN;
     private javax.swing.JButton sökAlienBTN;
+    private javax.swing.JButton sökAlienPlatsBTN;
     private javax.swing.JButton updateAlien;
     private javax.swing.JButton utrustningBTN;
     // End of variables declaration//GEN-END:variables
